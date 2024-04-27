@@ -1,6 +1,8 @@
-import { avatarlabels } from "../config";
+
 
 export default function DumbLevels() {
+
+  const avatarlabels = ['Just Plain Dumb', 'Not Too Bright', 'Smartass', 'Pretentious Professor', 'Sentient Savant']
 
   const dumbnessLevel = 3;
 
@@ -24,14 +26,14 @@ export default function DumbLevels() {
           >
             <div
               className={`items-end absolute z-1 w-full h-8 md:w-16 md:h-10 bg-custom-blue ${
-                dumbnesslevel == dumbnessLevel
+                dumbnesslevel === dumbnessLevel
                   ? "bg-opacity-70"
                   : "bg-opacity-10"
               } rounded-md transition-all duration-300 ease-in-out`}
             ></div>
             <div
               className={`relative top-1 bg-no-repeat bg-center bg-contain z-10 w-8 h-5 md:w-14 md:h-10 mb-2 md:mb-2 avatar${dumbnesslevel}`}
-              style={{ backgroundImage: `url(${imageMap[dumbnesslevel]})` }}
+            //   style={{ backgroundImage: `url(${imageMap[dumbnesslevel]})` }}
             ></div>
             {dumbnesslevel === 5 ? (
               <>
