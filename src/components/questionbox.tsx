@@ -19,7 +19,7 @@ export default function QuestionBox() {
                 <span>Topic of the day:</span>
                 <span className="font-bold">General Knowledge</span>
             </div>
-            <div className="overflow-y-scroll p-4 flex flex-col gap-4 justify-start items-left"
+            <div className="overflow-y-scroll p-4 flex flex-col gap-4 justify-start items-left h-full"
                 style={{ height: `calc(100% - ${questionBoxHeader.current?.clientHeight}px)` }}
             >
                 <div className="text-left text-lg font-bold">{test_data.message}</div>

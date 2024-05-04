@@ -10,7 +10,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  p: 4,
 };
 
 export default function BasicModal({ buttonchildren, children }: { buttonchildren: React.ReactNode, children: React.ReactNode }) {
@@ -30,7 +29,7 @@ export default function BasicModal({ buttonchildren, children }: { buttonchildre
         aria-describedby="modal-modal-description"
         className="flex justify-center items-center rounded-md drop-shadow-lg"
       >
-        <Box sx={style} className='rounded-md dark:bg-gray-800 dark:text-white w-[400px] h-[600px]'>
+        <Box sx={style} className='rounded-md dark:bg-gray-800 dark:text-white w-[400px] h-[600px] overflow-hidden'>
          {children}
         </Box>
       </Modal>
