@@ -6,7 +6,7 @@ import QuestionBox from './components/questionbox';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App flex flex-col justify-between h-screen px-32">
       <Navbar />
       <QuestionBox />
       <DumbLevels />

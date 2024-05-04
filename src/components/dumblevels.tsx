@@ -7,11 +7,11 @@ export default function DumbLevels() {
   const dumbnessLevel = 3;
 
   const imageMap = {
-    1: "/dumblevel1.png",
-    2: "/dumblevel2.png",
-    3: "/dumblevel3.png",
-    4: "/dumblevel4.png",
-    5: "/dumblevel5.png",
+    1: "/levels/level1.png",
+    2: "/levels/level2.png",
+    3: "/levels/level3.png",
+    4: "/levels/level4.png",
+    5: "/levels/level5.png",
   };
 
   return (
@@ -34,7 +34,9 @@ export default function DumbLevels() {
             <div
               className={`relative top-1 bg-no-repeat bg-center bg-contain z-10 w-8 h-5 md:w-14 md:h-10 mb-2 md:mb-2 avatar${dumbnesslevel}`}
             //   style={{ backgroundImage: `url(${imageMap[dumbnesslevel]})` }}
-            ></div>
+            >
+              <img src={imageMap[dumbnesslevel as keyof typeof imageMap]} alt="dumbnesslevel" />
+            </div>
             {dumbnesslevel === 5 ? (
               <>
                 <div className="absolute z-50 text-[9px] md:text-[0.4rem] right-[5%] md:right-[1em] mb-5 md:mb-6 font-bold">
