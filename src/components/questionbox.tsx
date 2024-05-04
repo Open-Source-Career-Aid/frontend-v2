@@ -3,7 +3,7 @@ import React from 'react';
 export default function QuestionBox() {
     const questionBoxHeader = React.useRef<HTMLDivElement>(null);
     return (
-        <div className="border border-1 border-black flex-grow mx-32 rounded-lg overflow-hidden h-full">
+        <div className="border border-1 border-black flex-grow rounded-lg overflow-hidden">
             <div className="border border-b-1 bg-gray-200 w-full" ref={questionBoxHeader}>
                 <span>Topic of the day:</span>
                 <span className="font-bold">General Knowledge</span>
