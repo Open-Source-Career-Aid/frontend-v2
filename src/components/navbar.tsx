@@ -5,7 +5,7 @@ import ThemeSwitch from "./themeswitch"
 
 export default function Navbar() {
     return (
-        <div className="flex flex-row justify-between items-center align-middle p-4">
+        <div className="flex flex-row justify-between items-center align-middle py-4">
             <div className="flex justify-start w-1/3">
                 <Score />
             </div>
