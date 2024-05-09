@@ -17,7 +17,7 @@ export default function QuestionBox() {
         <div className="flex flex-col border border-1 border-black flex-grow rounded-lg overflow-hidden">
             <div className="border border-b-1 bg-gray-200 w-full" ref={questionBoxHeader}>
                 <span>Topic of the day:</span>
-                <span className="font-bold">General Knowledge</span>
+                <span className="font-bold text-text-primary">General Knowledge</span>
             </div>
             <div className="overflow-y-scroll p-4 flex flex-col gap-4 justify-start items-left h-full"
                 style={{ height: `calc(100% - ${questionBoxHeader.current?.clientHeight}px)` }}
