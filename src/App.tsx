@@ -42,7 +42,7 @@ function App() {
         <BotMessage>
           <b>Correct!</b> I guess you might be smart after all. Here’s an explanation of why that was the right/wrong choice!
         </BotMessage>
-        <HintBox />
+        <HintBox before={10} after={5} />
       </div>
     </div>
   );
