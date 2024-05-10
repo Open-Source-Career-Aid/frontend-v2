@@ -1,5 +1,5 @@
 import { useState } from "react"
-import BasicModal from "../modalbox"
+import BasicModal from "./modalbox"
 
 function InfoModalHeader() {
     return (
@@ -58,10 +58,10 @@ export default function InfoModal() {
                 <img src="info.png" alt="info" className='w-16' />
             </button>
             <BasicModal
-                height="424px"
-                width="320px"
-                open={open}
-                setOpen={setOpen}>
+            height="424px"
+            width="320px"
+            open={open}
+            setOpen={setOpen}>
                 <div className="flex flex-col w-full px-2 gap-4">
                     <InfoModalHeader />
                     <InfoModalBody />

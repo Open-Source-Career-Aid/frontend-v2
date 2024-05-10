@@ -21,7 +21,12 @@ export default function BasicModal({ children, height, width, open, setOpen }: B
         <React.Fragment>
           <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 bg-black opacity-50" onClick={handleClose}></div>
-            <div className={`h-[${height}] w-[${width}] bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 z-50`}>
+            <div className="bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 z-50"
+            style={{
+              height: height,
+              width: width,
+            }}
+            >
               {children}
             </div>
           </div>

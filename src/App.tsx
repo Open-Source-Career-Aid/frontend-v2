@@ -2,6 +2,7 @@ import './App.css';
 import BotMessage from './components/chat/botmessage';
 import Question from './components/chat/question';
 import Navbar from './components/navbar';
+import HintBox from './components/modals/hintbox';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <BotMessage>
           <b>Correct!</b> I guess you might be smart after all. Here’s an explanation of why that was the right/wrong choice!
         </BotMessage>
+        <HintBox />
       </div>
     </div>
   );
