@@ -13,7 +13,7 @@ export default function BotMessage({ children }: BotMessageProps) {
                     src="/icons/ChatBot-small.png"
                     alt="Profile"
                 />
-                <span>
+                <span className="text-text-secondary font-light">
                     DUMBSPLAIN BOT
                 </span>
             </div>

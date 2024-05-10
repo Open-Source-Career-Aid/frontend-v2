@@ -5,3 +5,17 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+@layer components {
+  .small-heading-h4 {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 2%;
+  }
+
+  .small-heading-h5 {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 2%;
+  }
+}
