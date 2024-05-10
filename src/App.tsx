@@ -17,6 +17,22 @@ function App() {
           question="What is the capital of France?" 
           questionindex={1} 
           totalquestions={3} 
+          status='pending' 
+          />
+        </BotMessage>
+        <BotMessage>
+          <Question 
+          question="What is the capital of France?" 
+          questionindex={1} 
+          totalquestions={3} 
+          status='won' 
+          />
+        </BotMessage>
+        <BotMessage>
+          <Question 
+          question="What is the capital of France?" 
+          questionindex={1} 
+          totalquestions={3} 
           status='lost' 
           />
         </BotMessage>
