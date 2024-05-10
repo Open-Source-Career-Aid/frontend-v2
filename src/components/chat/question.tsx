@@ -5,9 +5,10 @@ type QuestionBoxProps = {
     questionindex: number;
     totalquestions: number;
     status: "pending" | "won" | "lost";
+    points: number;
 };
 
-export default function Question({ question , questionindex , totalquestions , status }: QuestionBoxProps) {
+export default function Question({ question , questionindex , totalquestions , status , points }: QuestionBoxProps) {
     return (
         <div className="flex flex-col w-full">
             <div className="flex justify-between items-center w-full">
@@ -15,7 +16,7 @@ export default function Question({ question , questionindex , totalquestions , s
                     Question {questionindex} of {totalquestions}
                 </div>
                 <div className="flex justify-end">
-                    <Points points={0} status={status} />
+                    <Points points={points} status={status} />
                 </div>
             </div>
             <div className="flex flex-col w-full">

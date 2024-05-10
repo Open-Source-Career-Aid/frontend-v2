@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --dark-gray: 0 0 0 0.9;
-
-    --text-primary: 224 84 18 1;
-    --text-secondary: 224 26 47 1;
-
-    --card-outlining-dark: 223 22 75 1;
-    --disabled-buttons: 223 22 75 1;
-
-    --card-outlining-light: 223 21 87 1;
-    --unselected-option: 223 21 87 1;
-    --page-break: 223 21 87 1;
-  }
+body {
+    font-family: 'Montserrat', sans-serif;
 }

@@ -17,7 +17,8 @@ function App() {
           question="What is the capital of France?" 
           questionindex={1} 
           totalquestions={3} 
-          status='pending' 
+          status='pending'
+          points={0}
           />
         </BotMessage>
         <BotMessage>
@@ -25,7 +26,8 @@ function App() {
           question="What is the capital of France?" 
           questionindex={1} 
           totalquestions={3} 
-          status='won' 
+          status='won'
+          points={10}
           />
         </BotMessage>
         <BotMessage>
@@ -34,6 +36,7 @@ function App() {
           questionindex={1} 
           totalquestions={3} 
           status='lost' 
+          points={0}
           />
         </BotMessage>
       </div>
