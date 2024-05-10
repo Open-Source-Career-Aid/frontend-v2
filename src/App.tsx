@@ -1,12 +1,11 @@
-import React from 'react';
 import './App.css';
-import Navbar from './components/navbar';
 import BotMessage from './components/chat/botmessage';
 import Question from './components/chat/question';
+import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className="App flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto px-5">
+    <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto px-5">
       <Navbar />
       <div className='flex flex-col justify-start w-full'>
         <BotMessage>

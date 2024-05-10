@@ -4,6 +4,12 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #F6F9FF;
+}
+
+* {
+    outline: none;
+    transition: all 0.3s;
 }
 
 @layer components {

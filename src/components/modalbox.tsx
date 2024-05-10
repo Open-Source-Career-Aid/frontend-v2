@@ -24,11 +24,9 @@ export default function BasicModal({ buttonchildren, children }: { buttonchildre
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className="flex justify-center items-center rounded-md drop-shadow-lg"
+        className="flex justify-center items-center bg-[rgba(255,255,255,0.7)]"
       >
-        <Box sx={style} className='rounded-md dark:bg-gray-800 dark:text-white w-[400px] h-[600px] overflow-hidden'>
+        <Box sx={style} className='rounded-md dark:bg-gray-800 dark:text-white w-[400px] h-[600px] overflow-hidden focus:outline-none'>
          {children}
         </Box>
       </Modal>
