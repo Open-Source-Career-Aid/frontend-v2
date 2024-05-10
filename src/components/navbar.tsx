@@ -1,4 +1,4 @@
-import InfoModal from "./infomodal"
+import InfoModal from "./modals/infomodal"
 import Logo from "./logo"
 import Score from "./score"
 import ThemeSwitch from "./themeswitch"
