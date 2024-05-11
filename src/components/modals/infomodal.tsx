@@ -55,7 +55,7 @@ export default function InfoModal() {
     return (
         <div className="w-fit">
             <button onClick={() => setOpen(true)} className="text-blue-primary">
-                <img src="info.png" alt="info" className='w-16' />
+                <img src="icons/help.png" alt="info" className='w-6' />
             </button>
             <BasicModal
             height="424px"

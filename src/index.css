@@ -30,4 +30,10 @@ body {
     font-weight: 400;
     font-style: normal;
   }
+
+  .inika-bold {
+    font-family: "Inika", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
 }

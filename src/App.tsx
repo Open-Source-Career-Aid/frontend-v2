@@ -9,9 +9,9 @@ import { TopicHeader } from './components/headers/topicheader';
 
 function App() {
   return (
-    <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto px-5">
+    <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto">
       <Navbar />
-      <div className='flex flex-col justify-start w-full'>
+      <div className='flex flex-col justify-start w-full px-5'>
         <BotMessage>
           <p className='text-text-primary'>Welcome, carbon-based life form. Let’s see how you fare in my arena of knowledge. Buckle up.</p>
         </BotMessage>

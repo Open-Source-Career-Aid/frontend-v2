@@ -1,12 +1,11 @@
-export default function Logo() {
+export default function Logo({ showfull = false }: { showfull?: boolean }) {
     return (
         <div className="flex flex-row justify-between items-center">
-            {/* display a image */}
-            <img
-                src="logo.svg"
-                alt="logo"
-                className="w-48"
-            />
+            { showfull ?
+            <p className="inika-bold text-3xl leading-10 text-blue-primary">Dumbspl<span className="text-orange-strong">ai</span>n</p>
+            :
+            <img src="icons/Logo.png" alt="Dumbsplain" className="w-6 h-6" />
+            }
         </div>
     );
 }
