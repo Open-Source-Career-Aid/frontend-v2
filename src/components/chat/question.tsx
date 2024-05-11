@@ -12,7 +12,7 @@ export default function Question({ question , questionindex , totalquestions , s
     return (
         <div className="flex flex-col w-full">
             <div className="flex justify-between items-center w-full">
-                <div>
+                <div className="text-text-primary">
                     Question {questionindex} of {totalquestions}
                 </div>
                 <div className="flex justify-end">
@@ -20,7 +20,7 @@ export default function Question({ question , questionindex , totalquestions , s
                 </div>
             </div>
             <div className="flex flex-col w-full">
-                <div className="font-bold">{question}</div>
+                <div className="font-bold text-text-primary">{question}</div>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <div className='flex flex-col justify-start w-full'>
         <BotMessage>
-          <p>Welcome, carbon-based life form. Let’s see how you fare in my arena of knowledge. Buckle up.</p>
+          <p className='text-text-primary'>Welcome, carbon-based life form. Let’s see how you fare in my arena of knowledge. Buckle up.</p>
         </BotMessage>
         <BotMessage>
           <Question 
@@ -41,10 +41,12 @@ function App() {
           />
         </BotMessage>
         <BotMessage>
+          <p className='text-text-primary'>
           <b>Correct!</b> I guess you might be smart after all. Here’s an explanation of why that was the right/wrong choice!
+          </p>
         </BotMessage>
         <HintBox before={10} after={5} />
-        <ScoreGrid scores={[10, 0, 10, 15, 0]} hints={[false, true, true, false, false]} />
+        <ScoreGrid scores={[10, 0, 0, 15, 0]} hints={[true, true, true, true, true]} />
       </div>
     </div>
   );
