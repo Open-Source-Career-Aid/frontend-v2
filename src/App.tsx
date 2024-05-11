@@ -4,6 +4,7 @@ import Question from './components/chat/question';
 import Navbar from './components/navbar';
 import HintBox from './components/modals/hintbox';
 import ScoreGrid from './components/summary/scoregrid';
+import SummaryHeader from './components/summary/summaryheader';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         </BotMessage>
         <HintBox before={10} after={5} />
         <ScoreGrid scores={[10, 0, 0, 15, 0]} hints={[true, true, true, true, true]} />
+        <SummaryHeader score={25} />
       </div>
     </div>
   );
