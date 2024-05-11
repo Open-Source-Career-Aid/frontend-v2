@@ -4,7 +4,6 @@ function Dumbness() {
             Dumbness
         </div>
     );
-
 }
 
 export default function SummaryHeader({ score }: { score: number }) {
