@@ -3,6 +3,7 @@ import BotMessage from './components/chat/botmessage';
 import Question from './components/chat/question';
 import Navbar from './components/navbar';
 import HintBox from './components/modals/hintbox';
+import ScoreGrid from './components/summary/scoregrid';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <b>Correct!</b> I guess you might be smart after all. Here’s an explanation of why that was the right/wrong choice!
         </BotMessage>
         <HintBox before={10} after={5} />
+        <ScoreGrid scores={[10, 0, 10, 15, 0]} hints={[false, true, true, false, false]} />
       </div>
     </div>
   );
