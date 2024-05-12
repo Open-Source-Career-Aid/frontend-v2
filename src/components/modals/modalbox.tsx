@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { motion } from 'framer-motion';
 
 type BasicModalProps = {
   children: React.ReactNode;
@@ -21,14 +22,18 @@ export default function BasicModal({ children, height, width, open, setOpen }: B
         <React.Fragment>
           <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 bg-black opacity-50" onClick={handleClose}></div>
-            <div className="bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 z-50"
+            <motion.div className="bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 z-50"
             style={{
               height: height,
               width: width,
             }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
             >
               {children}
-            </div>
+            </motion.div>
           </div>
         </React.Fragment>
       ) : null}
