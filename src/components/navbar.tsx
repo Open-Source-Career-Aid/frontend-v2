@@ -3,7 +3,9 @@ import InfoModal from "./modals/infomodal"
 
 export default function Navbar() {
     return (
-        <div className="flex flex-row justify-between items-center align-middle h-[44px] shadow-md px-4">
+        <div className="flex flex-row justify-between items-center align-middle shadow-md px-4"
+        style={{height: "44px"}}
+        >
             <div className="flex flex-row justify-start items-center w-1/2">
                 <Logo />
             </div>

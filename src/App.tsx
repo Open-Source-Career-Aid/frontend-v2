@@ -6,6 +6,7 @@ import HintBox from './components/modals/hintbox';
 import ScoreGrid from './components/summary/scoregrid';
 import SummaryHeader from './components/headers/summaryheader';
 import { TopicHeader } from './components/headers/topicheader';
+import Image from './components/image';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
         <div className='p-2'>
           <TopicHeader topic='Geography' score={30} showscore={true} />
         </div>
+        <Image src='https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg' alt='Northern Lights' />
       </div>
     </div>
   );
