@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState , useEffect } from "react"
 import BasicModal from "./modalbox"
 
 function InfoModalHeader() {
@@ -52,6 +52,16 @@ function InfoModalFooter({setOpen}: { setOpen: React.Dispatch<React.SetStateActi
 
 export default function InfoModal() {
     const [open, setOpen] = useState(false)
+    
+    useEffect(() => {
+        const infoModal = localStorage.getItem('infoModal')
+        console.log(infoModal)
+        if (infoModal === null) {
+            setOpen(true)
+            localStorage.setItem('infoModal', 'true')
+        }
+    }, [])
+
     return (
         <div className="w-fit">
             <button onClick={() => setOpen(true)} className="text-blue-primary">
