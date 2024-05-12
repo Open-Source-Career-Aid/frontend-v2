@@ -2,24 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 type ProgressState = {
     topic: string,
-    questions: string[],
-    options: string[][],
-    dq: number,
-    currentLevel: number,
-    score: number,
-    positivePoints: number,
-    negativePoints: number,
+    welcomeMessage: string,
+    imgsrc: string,
 }
 
 const initialState: ProgressState = {
     topic: '',
-    questions: [],
-    options: [],
-    dq: 0,
-    currentLevel: 1,
-    score: 0,
-    positivePoints: 0,
-    negativePoints: 0,
+    welcomeMessage: '',
+    imgsrc: '',
 }
 
 export const progressSlice = createSlice({
@@ -27,48 +17,22 @@ export const progressSlice = createSlice({
   initialState,
   reducers: {
     setTopic: (state, action) => {
-      state.topic = action.payload
+        state.topic = action.payload
     },
-    setQuestions: (state, action) => {
-      state.questions = action.payload
+    setWelcomeMessage: (state, action) => {
+        state.welcomeMessage = action.payload
     },
-    setOptions: (state, action) => {
-      state.options = action.payload
+    setImgsrc: (state, action) => {
+        state.imgsrc = action.payload
     },
-    setCurrentLevel: (state, action) => {
-      state.currentLevel = action.payload
-    },
-    setScore: (state, action) => {
-      state.score = action.payload
-    },
-    setPositivePoints: (state, action) => {
-      state.positivePoints = action.payload
-    },
-    setNegativePoints: (state, action) => {
-      state.negativePoints = action.payload
-    },
-    addPositivePoints: (state, action) => {
-      state.positivePoints += action.payload
-      state.score += action.payload
-    },
-    addNegativePoints: (state, action) => {
-      state.negativePoints += action.payload
-      state.score -= action.payload
-    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { 
-    setTopic, 
-    setQuestions, 
-    setOptions, 
-    setCurrentLevel, 
-    setScore, 
-    setPositivePoints, 
-    setNegativePoints, 
-    addPositivePoints, 
-    addNegativePoints
+export const {
+    setTopic,
+    setWelcomeMessage,
+    setImgsrc,
 } = progressSlice.actions
 
 export default progressSlice.reducer

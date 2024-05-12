@@ -52,10 +52,9 @@ function InfoModalFooter({setOpen}: { setOpen: React.Dispatch<React.SetStateActi
 
 export default function InfoModal() {
     const [open, setOpen] = useState(false)
-    
+
     useEffect(() => {
         const infoModal = localStorage.getItem('infoModal')
-        console.log(infoModal)
         if (infoModal === null) {
             setOpen(true)
             localStorage.setItem('infoModal', 'true')
