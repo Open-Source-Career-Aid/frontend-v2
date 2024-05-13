@@ -6,8 +6,13 @@ import Image from "./image";
 import StickyButton from "./stickybutton";
 import Footer from "./footer";
 import { motion } from "framer-motion";
+import { useAppSelector } from "../redux/hook";
 
 export default function Base() {
+    const topic = useAppSelector(state => state.progress.topic)
+    const welcomeMessage = useAppSelector(state => state.progress.welcomeMessage)
+    const imgsrc = useAppSelector(state => state.progress.imgsrc)
+
     return (
         <div className="relative w-full h-full">
             <Navbar />
@@ -24,7 +29,7 @@ export default function Base() {
                 >
                     <BotMessage>
                         <p className="text-text-primary">
-                            Oh, look! Another bipedal challenger. How... quaint. Welcome, carbon-based life form. Let’s see how you fare in my arena of knowledge. Buckle up.
+                            {welcomeMessage}
                         </p>
                     </BotMessage>
                 </motion.div>
@@ -34,8 +39,8 @@ export default function Base() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 0.5}}
                 >
-                    <TopicHeader topic="General Knowledge" />
-                    <Image src="https://media.springernature.com/lw703/springer-static/image/art%3A10.1038%2F528452a/MediaObjects/41586_2015_Article_BF528452a_Figg_HTML.jpg" alt="chatbot" />
+                    <TopicHeader topic={topic} />
+                    <Image src={imgsrc} alt={topic} />
                 </motion.div>
             </div>
             <Footer />
