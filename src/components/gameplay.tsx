@@ -22,9 +22,6 @@ export default function Gameplay() {
                     <TopicHeader topic={gameplay.topic} score={gameplay.score} showscore />
                 </div>
                 <BotMessage>
-                    {/* <p className="text-text-primary">
-                        {gameplay.questions[gameplay.currentQuestion].question}
-                    </p> */}
                     <Question 
                     question={gameplay.questions[gameplay.currentQuestion].question}
                     questionindex={gameplay.currentQuestion + 1}
@@ -33,18 +30,6 @@ export default function Gameplay() {
                     points={gameplay.score}
                     />
                 </BotMessage>
-                {/* <div className="flex flex-col items-center gap-4">
-                    <p className="text-text-primary">
-                        {gameplay.questions[gameplay.currentQuestion].question}
-                    </p>
-                    <div className="flex flex-col gap-2">
-                        {gameplay.questions[gameplay.currentQuestion].answers.map((answer, index) => (
-                            <button key={index} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full">
-                                {answer}
-                            </button>
-                        ))}
-                    </div>
-                </div> */}
             </div>
         </div>
     )
