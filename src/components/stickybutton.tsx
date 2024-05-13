@@ -1,13 +1,11 @@
-export default function StickyButton({text, onClick}: {text: string, onClick: () => void}) {
+export default function StickyButton({children}: {children: React.ReactNode}) {
     return (
         <div className="fixed w-full bottom-0 left-0">
             <div className="mx-auto flex justify-center px-5 bg-[#F6F9FF]"
             style={{width: "430px"}}
             >
                 <div className="w-full">
-                    <button className="mx-auto w-full mt-2 mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={onClick}>
-                        {text}
-                    </button>
+                    {children}
                 </div>
             </div>
         </div>

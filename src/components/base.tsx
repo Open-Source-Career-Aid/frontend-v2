@@ -9,14 +9,18 @@ import { motion } from "framer-motion";
 import { useAppSelector } from "../redux/hook";
 
 export default function Base() {
-    const topic = useAppSelector(state => state.progress.topic)
-    const welcomeMessage = useAppSelector(state => state.progress.welcomeMessage)
-    const imgsrc = useAppSelector(state => state.progress.imgsrc)
+    const topic = useAppSelector(state => state.topic.topic)
+    const welcomeMessage = useAppSelector(state => state.topic.welcomeMessage)
+    const imgsrc = useAppSelector(state => state.topic.imgsrc)
 
     return (
         <div className="relative w-full h-full">
             <Navbar />
-            <StickyButton text="Start" onClick={() => {}} />
+            <StickyButton>
+                <button className="mx-auto w-full mt-2 mb-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full">
+                    Let's play
+                </button>
+            </StickyButton>
             <div className="flex flex-col w-full px-5 gap-4">
                 <div className="flex justify-center w-full mt-6">
                     <Logo showfull />

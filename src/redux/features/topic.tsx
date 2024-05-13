@@ -1,4 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice , createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+// export const getTopic = createAsyncThunk(
 
 type ProgressState = {
     topic: string,
@@ -12,8 +15,8 @@ const initialState: ProgressState = {
     imgsrc: 'https://i.abcnewsfe.com/a/580dedcc-4d33-47cc-8588-1fa65852076c/northern-lights-2-gty-bb-240510_1715350462481_hpMain_16x9.jpg?w=992',
 }
 
-export const progressSlice = createSlice({
-  name: 'progress',
+export const topicSlice = createSlice({
+  name: 'topic',
   initialState,
   reducers: {
     setTopic: (state, action) => {
@@ -33,6 +36,6 @@ export const {
     setTopic,
     setWelcomeMessage,
     setImgsrc,
-} = progressSlice.actions
+} = topicSlice.actions
 
-export default progressSlice.reducer
+export default topicSlice.reducer
