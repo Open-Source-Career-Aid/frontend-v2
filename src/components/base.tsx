@@ -1,12 +1,12 @@
-import Navbar from "./navbar";
-import Logo from "./logo";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../redux/hook";
 import BotMessage from "./chat/botmessage";
+import Footer from "./footer";
 import { TopicHeader } from "./headers/topicheader";
 import Image from "./image";
+import Logo from "./logo";
 import StickyButton from "./stickybutton";
-import Footer from "./footer";
-import { motion } from "framer-motion";
-import { useAppSelector } from "../redux/hook";
 
 export default function Base() {
     const topic = useAppSelector(state => state.topic.topic)
@@ -15,11 +15,12 @@ export default function Base() {
 
     return (
         <div className="relative w-full h-full">
-            <Navbar />
             <StickyButton>
-                <button className="mx-auto w-full mt-2 mb-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full">
-                    Let's play
-                </button>
+                <Link to="/game">
+                    <button className="mx-auto w-full mt-2 mb-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full">
+                        Let's play
+                    </button>
+                </Link>
             </StickyButton>
             <div className="flex flex-col w-full px-5 gap-4">
                 <div className="flex justify-center w-full mt-6">

@@ -1,7 +1,4 @@
-import { createSlice , createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-// export const getTopic = createAsyncThunk(
+import { createSlice } from '@reduxjs/toolkit';
 
 type ProgressState = {
     topic: string,
