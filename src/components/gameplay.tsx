@@ -4,6 +4,7 @@ import { TopicHeader } from "./headers/topicheader";
 import { useAppSelector } from "../redux/hook";
 import BotMessage from "./chat/botmessage";
 import Question from "./chat/question";
+import Options from "./clickables/option";
 
 export default function Gameplay() {
     const gameplay = useAppSelector(state => state.gameplay)
@@ -28,6 +29,12 @@ export default function Gameplay() {
                     totalquestions={gameplay.questions.length}
                     status="pending"
                     points={gameplay.score}
+                    />
+                    {/* {gameplay.questions[gameplay.currentQuestion].answers.map((option, index) => (
+                    ))} */}
+                    <Options
+                    options={gameplay.questions[gameplay.currentQuestion].answers}
+                    onChange={(index) => console.log(index)}
                     />
                 </BotMessage>
             </div>
