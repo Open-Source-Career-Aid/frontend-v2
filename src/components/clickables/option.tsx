@@ -12,7 +12,8 @@ type OptionsProps = {
 };
 
 const optionClasses = {
-    base: 'flex items-center justify-between w-full py-2 px-4 text-left text-text-primary bg-white rounded-lg border-blue-primary border',
+    base: 'flex items-center justify-between w-full py-2 px-4 text-left text-text-primary rounded-lg border-blue-primary border',
+    basebg: 'bg-white',
     selected: 'bg-blue-selected',
 };
 
@@ -25,7 +26,7 @@ export function Option({
   return (
     <>
         <button
-        className={`${optionClasses.base} ${selected ? optionClasses.selected : ''}`}
+        className={`${optionClasses.base} ${selected ? optionClasses.selected : optionClasses.basebg}`}
         onClick={onClick}
         {...props}
         >
@@ -44,7 +45,7 @@ export default function Options({ options, onChange }: OptionsProps) {
     }
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 py-4">
             {options.map((option, index) => (
                 <Option
                 key={index}
