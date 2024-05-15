@@ -36,8 +36,10 @@ export function Option({
     >
         <motion.button
         whileHover={{ backgroundColor: 'rgba(132, 163, 250, 1)' }}
-        className={`${optionClasses.base} ${selected ? optionClasses.selected : optionClasses.basebg}`}
+        className={`${optionClasses.base}`}
         onClick={onClick}
+        animate={{ backgroundColor: selected ? 'rgba(132, 163, 250, 1)' : 'rgba(255, 255, 255, 1)' }}
+        transition={{ duration: 0.2 }}
         {...props}
         >
         {children}
@@ -59,8 +61,8 @@ export default function Options({ options, onChange }: OptionsProps) {
             {options.map((option, index) => (
                 <Option
                 key={index}
-                onClick={() => handleChange(index)}
                 selected={selected === index}
+                onClick={() => handleChange(index)}
                 delay={index * 0.1}
                 >
                     {option}
