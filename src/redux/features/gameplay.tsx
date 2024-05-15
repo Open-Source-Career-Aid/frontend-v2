@@ -44,10 +44,10 @@ const initialState: gameplayState = {
         correctAnswerIndex: 3,
         hint: 'It is known as the city of the Liffey.'
     }],
-    currentQuestion: 0,
+    currentQuestion: 1,
     currentAnswer: null,
     previousAnswers: [],
-    questionLoading: false,
+    questionLoading: true,
     submitted: false,
     gamecomplete: false
 }
