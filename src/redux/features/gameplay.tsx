@@ -15,7 +15,10 @@ type gameplayState = {
     questions: Array<Question>,
     currentQuestion: number,
     currentAnswer: string | null,
-    previousAnswers: Array<number>
+    previousAnswers: Array<number>,
+    questionLoading: boolean,
+    submitted: boolean,
+    gamecomplete: boolean
 }
 
 const initialState: gameplayState = {
@@ -44,6 +47,9 @@ const initialState: gameplayState = {
     currentQuestion: 0,
     currentAnswer: null,
     previousAnswers: [],
+    questionLoading: false,
+    submitted: false,
+    gamecomplete: false
 }
 
 export const gameplaySlice = createSlice({
