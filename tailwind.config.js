@@ -11,7 +11,7 @@ module.exports = {
         'text-primary': 'rgba(7, 27, 83, 1)',
         'text-secondary': 'rgba(88, 105, 149, 1)',
         'card-outlining-strong': 'rgba(176, 184, 205, 1)',
-        'disabled-buttons': 'rgba(176, 184, 205, 1)',
+        'disabled-button': 'rgba(176, 184, 205, 1)',
         'card-outlining-lite': 'rgba(216, 220, 230, 1)',
         'unselected-option': 'rgba(216, 220, 230, 1)',
         'page-break': 'rgba(216, 220, 230, 1)',

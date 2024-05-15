@@ -35,6 +35,8 @@ export default function Gameplay() {
                     <Options
                     options={gameplay.questions[gameplay.currentQuestion].answers}
                     onChange={(index) => console.log(index)}
+                    disabled={true}
+                    correctOption={gameplay.questions[gameplay.currentQuestion].correctAnswerIndex}
                     />
                 </BotMessage>
             </div>

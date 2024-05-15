@@ -25,7 +25,7 @@ const initialState: gameplayState = {
     topic: 'Northern Lights',
     questions: [{
         question: 'What is the capital of France?',
-        answers: ['New York', 'London', 'Paris', 'Dublin'],
+        answers: ['What is the capital of France? What is the capital of France? What is the capital of France? What is the capital of France? What is the capital of France?', 'London', 'Paris', 'Dublin'],
         correctAnswerIndex: 2,
         hint: 'It is known as the city of love.'
     },
