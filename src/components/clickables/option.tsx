@@ -28,7 +28,7 @@ const optionClasses = {
 
 const disabledClasses = {
     "baseDisabled": "flex items-center justify-between w-full py-2 px-4 text-left text-text-primary rounded-lg",
-    "grayDisabled": "bg-disabled-button",
+    "grayDisabled": "bg-unselected-option",
     "correctDisabled": "bg-green-lite",
     "wrongDisabled": "bg-red-lite",
     "correctHighlightDisabled": "border-green-lite border-2"
