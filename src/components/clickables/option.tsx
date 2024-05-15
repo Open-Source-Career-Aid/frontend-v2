@@ -57,7 +57,7 @@ export function Option({
         setDisabledClass(disabledClasses.grayDisabled);
       }
     }
-  }, [disabled]);
+  }, [disabled, isCorrect, selected]);
 
   return (
     <motion.div

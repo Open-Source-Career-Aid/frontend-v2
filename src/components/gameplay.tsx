@@ -16,7 +16,7 @@ const gameButtonStates = {
 
 export default function Gameplay() {
     const gameplay = useAppSelector(state => state.gameplay)
-    const questionLoading = useAppSelector(state => state.gameplay.questionLoading)
+    // const questionLoading = useAppSelector(state => state.gameplay.questionLoading)
     const submitted = useAppSelector(state => state.gameplay.submitted)
     const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
 
