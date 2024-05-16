@@ -3,6 +3,7 @@ import './App.css';
 import Landing from './pages/landing';
 import Game from "./pages/game";
 import Navbar from "./components/navbar";
+import SummaryPage from "./pages/summary";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/game" element={<Game />} />
+          <Route path="/summary" element={<SummaryPage />} />
         </Routes>
       </Router>
     </div>
