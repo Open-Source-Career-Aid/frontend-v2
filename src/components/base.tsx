@@ -34,6 +34,7 @@ export default function Base() {
                 </Link>
             </StickyButton>
             <div className="flex flex-col w-full px-5 gap-4">
+                <div className="h-6"></div>
                 <div className="flex justify-center w-full mt-6">
                     <Logo showfull />
                 </div>
