@@ -1,10 +1,13 @@
-import { useAppSelector } from '../redux/hook'
+import { useAppSelector , useAppDispatch } from '../redux/hook'
 import BotMessage from './chat/botmessage'
 import Question from './chat/question'
 import Options from './clickables/option'
+import { setQuestionLoading , setCurrentAnswer } from '../redux/features/gameplay'
 
 function QuestionContainer({ index }: { index: number }) {
     const gameplay = useAppSelector(state => state.gameplay)
+    const questionstates = useAppSelector(state => state.gameplay.questionstates)
+    const dispatch = useAppDispatch()
 
     return (
         <div className='min-h-screen'>
@@ -14,14 +17,15 @@ function QuestionContainer({ index }: { index: number }) {
                 question={gameplay.questions[index].question}
                 questionindex={index}
                 totalquestions={gameplay.questions.length}
-                status="pending"
+                status={questionstates[index]}
                 points={gameplay.score}
                 />
                 <Options
                 options={gameplay.questions[index].answers}
-                onChange={(index) => console.log(index)}
-                disabled={true}
+                onChange={(index) => dispatch(setCurrentAnswer(index))}
+                disabled={'pending'!==questionstates[index]}
                 correctOption={gameplay.questions[index].correctAnswerIndex}
+                onAnimationEnd={() => dispatch(setQuestionLoading(false))}
                 />
             </BotMessage>
         </div>

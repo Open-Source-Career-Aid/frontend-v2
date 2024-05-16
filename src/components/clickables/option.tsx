@@ -9,6 +9,7 @@ type OptionProps = {
     delay: number;
     disabled: boolean;
     isCorrect?: boolean;
+    [x: string]: any;
 };
 
 type OptionsProps = {
@@ -16,6 +17,7 @@ type OptionsProps = {
     onChange: (index: number) => void;
     disabled: boolean;
     correctOption: number;
+    [x: string]: any;
 };
 
 const optionClasses = {
@@ -59,12 +61,19 @@ export function Option({
     }
   }, [disabled, isCorrect, selected]);
 
+  const handleAnimationEnd = () => {
+    if (props.isLastOption) {
+      props.onAnimationEnd();
+    }
+  }
+
   return (
     <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.2 , delay: delay }}
     exit={{ opacity: 0 }}
+    onAnimationComplete={handleAnimationEnd}
     >
         { !disabled ?
         <motion.button
@@ -88,7 +97,7 @@ export function Option({
   );
 }
 
-export default function Options({ options, disabled, correctOption, onChange }: OptionsProps) {
+export default function Options({ options, disabled, correctOption, onChange, ...props }: OptionsProps) {
     const [selected, setSelected] = React.useState<number | null>(null);
 
     const handleChange = (index: number) => {
@@ -106,6 +115,8 @@ export default function Options({ options, disabled, correctOption, onChange }: 
                 onClick={() => handleChange(index)}
                 delay={index * 0.1}
                 disabled={disabled}
+                isLastOption={index === options.length - 1}
+                {...props}
                 >
                     {option}
                 </Option>

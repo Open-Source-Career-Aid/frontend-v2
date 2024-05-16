@@ -14,7 +14,8 @@ type gameplayState = {
     topic: string,
     questions: Array<Question>,
     currentQuestion: number,
-    currentAnswer: string | null,
+    currentAnswer: number | null,
+    questionstates: Array<'pending' | 'won' | 'lost'>,
     previousAnswers: Array<number>,
     questionLoading: boolean,
     submitted: boolean,
@@ -44,8 +45,9 @@ const initialState: gameplayState = {
         correctAnswerIndex: 3,
         hint: 'It is known as the city of the Liffey.'
     }],
-    currentQuestion: 1,
+    currentQuestion: 0,
     currentAnswer: null,
+    questionstates: ['pending', 'pending', 'pending'],
     previousAnswers: [],
     questionLoading: true,
     submitted: false,
@@ -77,6 +79,33 @@ export const gameplaySlice = createSlice({
     setPreviousAnswers: (state, action) => {
         state.previousAnswers = action.payload
     },
+    setQuestionLoading: (state, action) => {
+        state.questionLoading = action.payload
+    },
+    setSubmitted: (state, action) => {
+        state.submitted = action.payload
+    },
+    setGameComplete: (state, action) => {
+        state.gamecomplete = action.payload
+    },
+    submitAnswer: (state) => {
+        if (state.currentAnswer === null) {
+            throw new Error('Cannot submit an answer without selecting an option')
+        }
+        state.submitted = true
+        state.questionstates[state.currentQuestion] = state.currentAnswer === state.questions[state.currentQuestion].correctAnswerIndex ? 'won' : 'lost'
+        state.previousAnswers = [...state.previousAnswers, state.currentAnswer]
+        if (state.currentAnswer === state.questions[state.currentQuestion].correctAnswerIndex) {
+            state.score += 1
+        }
+        state.currentAnswer = null
+        if (state.currentQuestion === state.questions.length - 1) {
+            state.gamecomplete = true
+        } else {
+            state.currentQuestion += 1
+            state.questionLoading = true
+        }
+    }
   },
 })
 
@@ -89,6 +118,10 @@ export const {
     setCurrentQuestion,
     setCurrentAnswer,
     setPreviousAnswers,
+    setQuestionLoading,
+    setSubmitted,
+    setGameComplete,
+    submitAnswer
 } = gameplaySlice.actions
 
 export default gameplaySlice.reducer
