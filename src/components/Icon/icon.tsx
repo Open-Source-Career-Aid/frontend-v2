@@ -1,4 +1,4 @@
-import type { IconName } from './public/icons/name.d.ts';
+import type { IconName } from './src/scripts/name.ts';
 
 // extend tells TS we're returning SVGElement
 interface IconProps extends React.SVGProps<SVGSVGElement> {
