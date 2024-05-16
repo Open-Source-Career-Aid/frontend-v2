@@ -45,10 +45,14 @@ export default function Gameplay() {
                     </motion.button>
                 </Link>
             </StickyButton>
+            <div className="fixed flex justify-center mt-6"
+            style={{
+                width: "430px",
+            }}
+            >
+                <TopicHeader topic={gameplay.topic} score={gameplay.score} showscore />
+            </div>
             <div className="flex flex-col w-full px-5 gap-4">
-                <div className="flex justify-center w-full mt-6">
-                    <TopicHeader topic={gameplay.topic} score={gameplay.score} showscore />
-                </div>
                 <QuestionContainer />
             </div>
         </div>

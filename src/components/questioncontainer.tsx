@@ -8,6 +8,7 @@ function QuestionContainer({ index }: { index: number }) {
 
     return (
         <div className='min-h-screen'>
+            <div className='h-28'></div>
             <BotMessage>
                 <Question 
                 question={gameplay.questions[index].question}
@@ -31,7 +32,7 @@ export default function QuestionsContainer() {
     const gameplay = useAppSelector(state => state.gameplay)
 
     return (
-    <div>
+    <div className='max-h-screen overflow-scroll'>
         {gameplay.questions.map((_, index) => (
         index <= gameplay.currentQuestion ? <QuestionContainer key={index} index={index} /> : null
         ))}
