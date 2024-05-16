@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="">
+        <div className="h-32">
         </div>
     )
 }
