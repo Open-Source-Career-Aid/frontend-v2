@@ -1,7 +1,8 @@
 import * as path from "node:path";
 // fsExtra adds file system methods
 import fsExtra from 'fs-extra';
-import glob from 'glob';
+import { glob } from 'glob';
+import { parse } from 'node-html-parser'; 
 
 // cwd = Current Working Directory
 const cwd = process.cwd();
@@ -64,6 +65,26 @@ function generateSvgSprite({ files, inputDirectory, outputDir }: {
   const symbol = await Promise.all(
     files.map(async (file) => {
       const input = await fsExtra.readFile(path.join(inputDirectory, file), 'utf-8')
+      const root = parse(input)
+      const svg = root.querySelector('svg')
+      if (!svg) throw new Error('No SVG element found')
+
+      svg.tagName = 'symbol'
+      svg.setAttribute('id', iconName(file))
+
+      svg.removeAttribute('xmlns')
+      svg.removeAttribute('xmlns:xlink')
+      svg.removeAttribute('version')
+      svg.removeAttribute('width')
+      svg.removeAttribute('height')
+      svg.removeAttribute('fill')
+
+      const paths = svg.querySelectorAll('path')
+      for(const path of paths) {
+        path.removeAttribute('fill')
+      }
+
+      return svg.toString().trim()
     })
   )
 }
