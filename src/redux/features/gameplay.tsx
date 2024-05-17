@@ -112,6 +112,8 @@ export const gameplaySlice = createSlice({
         if (state.currentAnswer === state.questions[state.currentQuestion].correctAnswerIndex) {
             state.score += 1
             state.scores = [...state.scores, state.score]
+        } else {
+            state.scores = [...state.scores, 0]
         }
         state.currentAnswer = null
         if (state.currentQuestion === state.questions.length - 1) {
