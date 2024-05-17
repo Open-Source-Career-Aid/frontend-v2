@@ -51,10 +51,12 @@ export default function Summary() {
     return (
         <div className='min-h-screen'>
             <div className='h-28'></div>
-            <SummaryHeader score={score} />
-            <DateAndTopic date={date} topic={topic} />
-            <ScoreGrid scores={scores} hints={[]} />
-            <TomorrowTopic topic={topic} />
+            <div className="w-full flex flex-col gap-4">
+                <SummaryHeader score={score} />
+                <DateAndTopic date={date} topic={topic} />
+                <ScoreGrid scores={scores} hints={[]} />
+                <TomorrowTopic topic={topic} />
+            </div>
             <SocialCTA />
         </div>
     )
