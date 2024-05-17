@@ -34,8 +34,7 @@
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:icons": "tsx scripts/build-icons.mts"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

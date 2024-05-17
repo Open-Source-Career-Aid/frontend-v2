@@ -1,18 +1,12 @@
-import type { IconName } from './src/scripts/name.ts';
+import React from "react";
+import { ReactDOM } from "react";
 
-// extend tells TS we're returning SVGElement
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  id: IconName
-  size?: number
-}
+const icons = ['arrow', 'award', 'chatbot_lg', 'chatbot_sm', 'check', 'help', 'lightbulb', 'logo', 'user', 'world', 'x']
 
-const Icon = ({ id }: {id: string }, { size = 24, ...props }: IconProps) => {
-
-  return(
-    <svg width={size} height={size} {...props}>
-      <use href={`./src/scripts/sprite.svg#${id}`} />
+export default function Icon({ id, ...props }) {
+  return (
+    <svg {...props}>
+      <use href={`/sprite.svg#${id}`} />
     </svg>
-  )
+  );
 }
-
-export default Icon
