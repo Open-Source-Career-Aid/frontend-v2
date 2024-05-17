@@ -1,18 +1,20 @@
 import * as path from "node:path";
 // fsExtra adds file system methods
 import fsExtra from 'fs-extra';
+// glob uses wildcards or glob patterns to specify or match filenames
 import { glob } from 'glob';
+// very fast HTML parser
 import { parse } from 'node-html-parser'; 
 
-// cwd = Current Working Directory
+// cwd = Current Working Directory | FRONTEND-V2
 const cwd = process.cwd();
-const inputDirectory = path.join(cwd, 'scripts', 'svg-icons')
+const inputDirectory = path.join(cwd, 'src', 'scripts', 'svg-icons')
 
 // Relative = Pass 2 separate paths, return relative path
 const inputDirRelative = path.relative(cwd, inputDirectory)
 
 // outputDir to sprite.svg
-const outputDir = path.join(cwd, 'public', 'icons')
+const outputDir = path.join(cwd, 'src', 'scripts')
 await fsExtra.ensureDir(outputDir)
 
 // Glob finds files 

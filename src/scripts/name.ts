@@ -1,1 +1,1 @@
-export type IconName = 
+export type IconName = () => {}
