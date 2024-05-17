@@ -1,6 +1,11 @@
 import BasicModal from "./modalbox"
 import { useState } from "react"
 import Points from "../chat/points"
+import Button from "../clickables/button"
+import { Lightbulb } from 'lucide-react';
+import BotMessage from "../chat/botmessage";
+
+
 
 function HintBoxHeader() {
     return (
@@ -39,26 +44,54 @@ function HintPoints({ before , after }: { before: number, after: number }) {
     )
 }
 
-function HintBoxFooter({setOpen}: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
+function HintBoxFooter({ setOpen, handleGetHint }: { setOpen: React.Dispatch<React.SetStateAction<boolean>>, handleGetHint: () => void }) {
     return (
         <div className="flex flex-col w-full gap-2">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
-                Got it!
-            </button>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
-                Got it!
-            </button>
+            <Button 
+                className="w-full"
+                loading={false}
+                onClick={handleGetHint}  
+            >
+                Get Hint
+            </Button>
+            <Button 
+                className="w-full"
+                loading={false}
+                onClick={() => setOpen(false)} 
+            >
+                Cancel
+            </Button>
         </div>
-    )
+    );
 }
+
 
 export default function HintBox({ before , after }: { before: number, after: number }) {
     const [open, setOpen] = useState(false)
+    const [hintVisible, setHintVisible] = useState(false);
+
+    function handleGetHint() {
+        setHintVisible(true);
+        setOpen(false);
+    }
+
+
     return (
         <div>
-            <button onClick={() => setOpen(true)} className="text-blue-primary">
-                Test Hint Box Modal
-            </button>
+       <button
+    onClick={() => setOpen(true)}
+    className="
+        bg-white-600 text-blue font-bold
+        rounded-md px-4 py-2 text-sm
+        shadow hover:bg-blue-700
+        focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50
+        transition-colors
+        flex items-center justify-center space-x-2
+    "
+>
+    <Lightbulb className="w-4 h-4" /> 
+    <span>Hints</span>
+    </button>
             <BasicModal
             height="320px"
             width="320px"
@@ -69,9 +102,16 @@ export default function HintBox({ before , after }: { before: number, after: num
                     <HintBoxHeader />
                     <HintBoxBody />
                     <HintPoints before={before} after={after} />
-                    <HintBoxFooter setOpen={setOpen} />
+                    <HintBoxFooter setOpen={setOpen} handleGetHint={handleGetHint} />
+
                 </div>
             </BasicModal>
+
+            {hintVisible && (
+                <BotMessage>
+                    <p>This is a hint!</p>
+                </BotMessage>
+            )}
         </div>
     )
 }       
