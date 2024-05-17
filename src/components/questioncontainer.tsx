@@ -1,16 +1,18 @@
-import { useAppSelector , useAppDispatch } from '../redux/hook'
+import React, { useEffect, useRef } from 'react'
+import { setCurrentAnswer, setQuestionLoading } from '../redux/features/gameplay'
+import { useAppDispatch, useAppSelector } from '../redux/hook'
 import BotMessage from './chat/botmessage'
 import Question from './chat/question'
 import Options from './clickables/option'
-import { setQuestionLoading , setCurrentAnswer } from '../redux/features/gameplay'
 
-function QuestionContainer({ index }: { index: number }) {
+// function QuestionContainer({ index }: { index: number }) {
+const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number }>(({ index }, ref) => {
     const gameplay = useAppSelector(state => state.gameplay)
     const questionstates = useAppSelector(state => state.gameplay.questionstates)
     const dispatch = useAppDispatch()
 
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen' ref={ref}>
             <div className='h-28'></div>
             <BotMessage>
                 <Question 
@@ -30,15 +32,27 @@ function QuestionContainer({ index }: { index: number }) {
             </BotMessage>
         </div>
     )
-}
+})
 
 export default function QuestionsContainer() {
     const gameplay = useAppSelector(state => state.gameplay)
+    const lastQuestionRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        console.log('scrolling')
+        if (lastQuestionRef.current) {
+            console.log('scrolling')
+            console.log(lastQuestionRef.current)
+            lastQuestionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [gameplay.currentQuestion])
 
     return (
     <div className='max-h-screen overflow-scroll'>
         {gameplay.questions.map((_, index) => (
-        index <= gameplay.currentQuestion ? <QuestionContainer key={index} index={index} /> : null
+            index <= gameplay.currentQuestion ? <QuestionContainer 
+            ref={index === gameplay.questions.length - 1 ? lastQuestionRef : null}
+            key={index} index={index} /> : null
         ))}
     </div>
     )

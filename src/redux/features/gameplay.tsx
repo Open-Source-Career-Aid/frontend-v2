@@ -10,6 +10,7 @@ type Question = {
 type gameplayState = {
     userid: string,
     score: number,
+    scores: Array<number>,
     date: string,
     topic: string,
     questions: Array<Question>,
@@ -25,6 +26,7 @@ type gameplayState = {
 const initialState: gameplayState = {
     userid: 'chinmay',
     score: 0,
+    scores: [],
     date: '12/12/2024',
     topic: 'Northern Lights',
     questions: [{
@@ -44,10 +46,22 @@ const initialState: gameplayState = {
         answers: ['New York', 'London', 'Paris', 'Dublin'],
         correctAnswerIndex: 3,
         hint: 'It is known as the city of the Liffey.'
+    },
+    {
+        question: 'What is the capital of Ireland?',
+        answers: ['New York', 'London', 'Paris', 'Dublin'],
+        correctAnswerIndex: 3,
+        hint: 'It is known as the city of the Liffey.'
+    },
+    {
+        question: 'What is the capital of Ireland?',
+        answers: ['New York', 'London', 'Paris', 'Dublin'],
+        correctAnswerIndex: 3,
+        hint: 'It is known as the city of the Liffey.'
     }],
     currentQuestion: 0,
     currentAnswer: null,
-    questionstates: ['pending', 'pending', 'pending'],
+    questionstates: ['pending', 'pending', 'pending', 'pending', 'pending'],
     previousAnswers: [],
     questionLoading: true,
     submitted: false,
@@ -97,6 +111,7 @@ export const gameplaySlice = createSlice({
         state.previousAnswers = [...state.previousAnswers, state.currentAnswer]
         if (state.currentAnswer === state.questions[state.currentQuestion].correctAnswerIndex) {
             state.score += 1
+            state.scores = [...state.scores, state.score]
         }
         state.currentAnswer = null
         if (state.currentQuestion === state.questions.length - 1) {
