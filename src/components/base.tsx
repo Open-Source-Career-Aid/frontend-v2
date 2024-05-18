@@ -9,6 +9,7 @@ import Logo from "./logo";
 import StickyButton from "./stickybutton";
 import Button from './clickables/button';
 import { ArrowRight } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 export default function Base() {
     const topic = useAppSelector(state => state.topic.topic)
@@ -24,15 +25,17 @@ export default function Base() {
     return (
         <div className="relative w-full h-full">
             <StickyButton>
-                <Button
-                to="/game" 
-                loading={loading}
-                onClick={() => console.log('Clicked!')}
-                >
-                    Let's Play
-                <span style={{ marginLeft: '10px' }}> <ArrowRight /></span>
-                </Button>
-
+                <Link to="/game">
+                    <Button
+                    loading={loading}
+                    onClick={() => console.log('Clicked!')}
+                    >
+                        Let's Play
+                    <span>
+                        <ArrowRight />
+                    </span>
+                    </Button>
+                </Link>
             </StickyButton>
             <div className="flex flex-col w-full px-5 gap-4">
                 <div className="h-6"></div>

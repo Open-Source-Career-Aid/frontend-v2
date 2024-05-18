@@ -1,5 +1,6 @@
 import { useState , useEffect } from "react"
 import BasicModal from "./modalbox"
+import Button from "../clickables/button"
 
 function InfoModalHeader() {
     return (
@@ -43,9 +44,13 @@ function InfoModalBody() {
 function InfoModalFooter({setOpen}: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
     return (
         <div className="flex w-full mb-4 justify-end px-2">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
-                Got it!
-            </button>
+            <div>
+                <Button
+                onClick={() => setOpen(false)}
+                >
+                    Got it!
+                </Button>
+            </div>
         </div>
     )
 }
