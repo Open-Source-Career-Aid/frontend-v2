@@ -2,9 +2,6 @@ import BasicModal from "./modalbox"
 import { useState } from "react"
 import Points from "../chat/points"
 import Button from "../clickables/button"
-import { Lightbulb } from 'lucide-react';
-import BotMessage from "../chat/botmessage";
-
 
 
 function HintBoxHeader() {
