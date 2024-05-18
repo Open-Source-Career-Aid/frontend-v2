@@ -44,20 +44,18 @@ function HintPoints({ before , after }: { before: number, after: number }) {
     )
 }
 
-function HintBoxFooter({ setOpen, handleGetHint }: { setOpen: React.Dispatch<React.SetStateAction<boolean>>, handleGetHint: () => void }) {
+function HintBoxFooter() {
     return (
         <div className="flex flex-col w-full gap-2">
             <Button 
              to="#"
             loading={false}
-            onClick={handleGetHint}  
             >
                 Get Hint
             </Button>
             <Button
             to="#" 
             loading={false}
-            onClick={() => setOpen(false)} 
             >
                 Cancel
             </Button>
@@ -68,29 +66,13 @@ function HintBoxFooter({ setOpen, handleGetHint }: { setOpen: React.Dispatch<Rea
 
 export default function HintBox({ before , after }: { before: number, after: number }) {
     const [open, setOpen] = useState(false)
-    const [hintVisible, setHintVisible] = useState(false);
-
-    function handleGetHint() {
-        setHintVisible(true);
-        setOpen(false);
-    }
 
 
     return (
         <div>
-        <button
-            onClick={() => setOpen(true)}
-            className="
-                    bg-white-600 text-blue font-bold
-                    rounded-md px-4 py-2 text-sm
-                    shadow hover:bg-blue-700
-                    focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50
-                    transition-colors
-                    flex items-center justify-center space-x-2
-                "
-            >
-            Hints
-        </button>
+            <button onClick={() => setOpen(true)}>
+                Hints
+            </button>
             <BasicModal
             height="320px"
             width="320px"
@@ -101,16 +83,10 @@ export default function HintBox({ before , after }: { before: number, after: num
                     <HintBoxHeader />
                     <HintBoxBody />
                     <HintPoints before={before} after={after} />
-                    <HintBoxFooter setOpen={setOpen} handleGetHint={handleGetHint} />
+                    <HintBoxFooter />
 
                 </div>
             </BasicModal>
-
-            {hintVisible && (
-                <BotMessage>
-                    <p>This is a hint!</p>
-                </BotMessage>
-            )}
         </div>
     )
 }       
