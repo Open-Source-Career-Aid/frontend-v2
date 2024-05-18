@@ -3,6 +3,9 @@ import { useAppSelector } from "../redux/hook"
 import Button from "./clickables/button"
 import SummaryHeader from "./headers/summaryheader"
 import ScoreGrid from "./summary/scoregrid"
+import ScoreComparision from "./modals/scorecomparision"
+import StickyButton from "./stickybutton"
+import Footer from "./footer"
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const days: { [key: number]: string } = {1: '1st', 2: '2nd', 3: '3rd', 4: '4th', 5: '5th', 6: '6th', 7: '7th',
@@ -59,14 +62,15 @@ function TomorrowTopic({ topic }: { topic: string }) {
 
 function SocialCTA() {
     return (
-        <div className='flex flex-col gap-2 p-2 pb-4'>
+        <div className='flex flex-col gap-2'>
             <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
             <Button>
                 Facebook
             </Button>
-            <Button>
-                Twitter
-            </Button>
+            <ScoreComparision
+            score={50}
+            globalAverage={50}
+            />
         </div>
     )
 }
@@ -88,7 +92,10 @@ export default function Summary() {
 
     return (
         <div className='min-h-screen flex flex-col justify-between'>
-            <div>
+            <StickyButton>
+                <SocialCTA />
+            </StickyButton>
+            <div className="min-h-screen overflow-scroll">
                 <div className='h-16'></div>
                 <div className="w-full flex flex-col gap-4">
                     <SummaryHeader score={score} />
@@ -96,8 +103,8 @@ export default function Summary() {
                     <ScoreGrid scores={scores} hints={[]} />
                     <TomorrowTopic topic={topic} />
                 </div>
+                <Footer />
             </div>
-            <SocialCTA />
         </div>
     )
 }
