@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useAppSelector , useAppDispatch } from "../redux/hook";
 import { setLoading } from "../redux/features/topic";
 import BotMessage from "./chat/botmessage";
@@ -8,6 +7,8 @@ import { TopicHeader } from "./headers/topicheader";
 import Image from "./image";
 import Logo from "./logo";
 import StickyButton from "./stickybutton";
+import Button from './clickables/button';
+import { ArrowRight } from 'lucide-react';
 
 export default function Base() {
     const topic = useAppSelector(state => state.topic.topic)
@@ -23,15 +24,15 @@ export default function Base() {
     return (
         <div className="relative w-full h-full">
             <StickyButton>
-                <Link to="/game">
-                    <motion.button 
-                    className={`mx-auto w-full mt-2 mb-4 text-white py-2 px-4 rounded-full ${ !loading ? 'hover:bg-blue-700': 'pointer-events-none bg-disabled-button' }`}
-                    animate={{ backgroundColor: loading ? 'rgba(176, 184, 205, 1)' : 'rgba(76, 123, 254, 1)' }}
-                    transition={{ duration: 0.5 }}
-                    >
-                        Let's play
-                    </motion.button>
-                </Link>
+                <Button
+                to="/game" 
+                loading={loading}
+                onClick={() => console.log('Clicked!')}
+                >
+                    Let's Play
+                <span style={{ marginLeft: '10px' }}> <ArrowRight /></span>
+                </Button>
+
             </StickyButton>
             <div className="flex flex-col w-full px-5 gap-4">
                 <div className="h-6"></div>
