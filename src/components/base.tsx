@@ -24,12 +24,9 @@ export default function Base() {
     return (
         <div className="relative w-full h-full">
             <StickyButton>
-               
                 <Button
-                to="/game" loading={loading}
-                className={`mx-auto w-full mt-2 mb-4 bg-blue-500 hover:bg-blue-700 ${!loading ? 'hover:bg-blue-700' : 'pointer-events-none bg-disabled-button'}`}
-                animate={{ backgroundColor: loading ? 'rgba(176, 184, 205, 1)' : 'rgba(76, 123, 254, 1)' }}
-                transition={{ duration: 0.5 }}
+                to="/game" 
+                loading={loading}
                 onClick={() => console.log('Clicked!')}
                 >
                     Let's Play

@@ -48,16 +48,16 @@ function HintBoxFooter({ setOpen, handleGetHint }: { setOpen: React.Dispatch<Rea
     return (
         <div className="flex flex-col w-full gap-2">
             <Button 
-                className="w-full"
-                loading={false}
-                onClick={handleGetHint}  
+             to="#"
+            loading={false}
+            onClick={handleGetHint}  
             >
                 Get Hint
             </Button>
-            <Button 
-                className="w-full"
-                loading={false}
-                onClick={() => setOpen(false)} 
+            <Button
+            to="#" 
+            loading={false}
+            onClick={() => setOpen(false)} 
             >
                 Cancel
             </Button>
@@ -78,20 +78,19 @@ export default function HintBox({ before , after }: { before: number, after: num
 
     return (
         <div>
-       <button
-    onClick={() => setOpen(true)}
-    className="
-        bg-white-600 text-blue font-bold
-        rounded-md px-4 py-2 text-sm
-        shadow hover:bg-blue-700
-        focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50
-        transition-colors
-        flex items-center justify-center space-x-2
-    "
->
-    <Lightbulb className="w-4 h-4" /> 
-    <span>Hints</span>
-    </button>
+        <button
+            onClick={() => setOpen(true)}
+            className="
+                    bg-white-600 text-blue font-bold
+                    rounded-md px-4 py-2 text-sm
+                    shadow hover:bg-blue-700
+                    focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50
+                    transition-colors
+                    flex items-center justify-center space-x-2
+                "
+            >
+            Hints
+        </button>
             <BasicModal
             height="320px"
             width="320px"

@@ -1,27 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Lightbulb } from 'lucide-react'; 
 
 interface ButtonProps {
-    to?: string;
-    loading: boolean;
-    children?: React.ReactNode; 
-    className?: string;
-    animate?: any;
-    transition?: any;
+    to: string;
+    type?: string;
+    loading?: boolean;
+    children: React.ReactNode; 
     onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ to, loading, children, className, animate, transition, onClick }) => {
-    const defaultClasses = `text-white py-2 px-4 rounded-full shadow-lg flex items-center justify-center space-x-2`;
-    const buttonClasses = `${defaultClasses} ${className}`;
+const buttonclasses: Record<string, string> = {
+    'base': 'w-full py-2 px-4 rounded-full flex items-center justify-center',
+    'default': 'text-white'
+}
+
+const Button: React.FC<ButtonProps> = ({ to, type = 'default', loading = false, children, onClick }) => {
 
     const ButtonContent = (
         <motion.button 
-            className={buttonClasses}
-            animate={animate}
-            transition={transition}
+            className={`${buttonclasses.base} ${buttonclasses[type]}`}
+            animate={{ backgroundColor: loading ? 'rgba(176, 184, 205, 1)' : 'rgba(76, 123, 254, 1)' }}
+            transition={{ duration: 0.5 }}
             onClick={onClick}
         >
             {children}
