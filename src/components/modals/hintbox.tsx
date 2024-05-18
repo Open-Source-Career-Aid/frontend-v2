@@ -1,8 +1,6 @@
 import BasicModal from "./modalbox"
 import { useState } from "react"
 import Points from "../chat/points"
-import Button from "../clickables/button"
-
 
 function HintBoxHeader() {
     return (
@@ -41,34 +39,25 @@ function HintPoints({ before , after }: { before: number, after: number }) {
     )
 }
 
-function HintBoxFooter() {
+function HintBoxFooter({setOpen}: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
     return (
         <div className="flex flex-col w-full gap-2">
-            <Button 
-             to="#"
-            loading={false}
-            >
-                Get Hint
-            </Button>
-            <Button
-            to="#" 
-            loading={false}
-            >
-                Cancel
-            </Button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
+                Got it!
+            </button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
+                Got it!
+            </button>
         </div>
-    );
+    )
 }
-
 
 export default function HintBox({ before , after }: { before: number, after: number }) {
     const [open, setOpen] = useState(false)
-
-
     return (
         <div>
-            <button onClick={() => setOpen(true)}>
-                Hints
+            <button onClick={() => setOpen(true)} className="text-blue-primary">
+                Test Hint Box Modal
             </button>
             <BasicModal
             height="320px"
@@ -80,8 +69,7 @@ export default function HintBox({ before , after }: { before: number, after: num
                     <HintBoxHeader />
                     <HintBoxBody />
                     <HintPoints before={before} after={after} />
-                    <HintBoxFooter />
-
+                    <HintBoxFooter setOpen={setOpen} />
                 </div>
             </BasicModal>
         </div>
