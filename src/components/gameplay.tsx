@@ -1,11 +1,10 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useAppSelector , useAppDispatch } from "../redux/hook";
 import { submitAnswer } from "../redux/features/gameplay";
+import { useAppDispatch, useAppSelector } from "../redux/hook";
+import Button from "./clickables/button";
 import { TopicHeader } from "./headers/topicheader";
 import QuestionContainer from "./questioncontainer";
 import StickyButton from "./stickybutton";
-import Button from "./clickables/button";
 
 import { useEffect, useState } from "react";
 

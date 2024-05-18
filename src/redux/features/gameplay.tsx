@@ -26,7 +26,7 @@ type gameplayState = {
 const initialState: gameplayState = {
     userid: 'chinmay',
     score: 0,
-    scores: [],
+    scores: [5, 10, 0, 10, 15],
     date: '12/12/2024',
     topic: 'Northern Lights',
     questions: [{
