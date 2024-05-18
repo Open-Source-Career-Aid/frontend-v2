@@ -59,16 +59,14 @@ function TomorrowTopic({ topic }: { topic: string }) {
 
 function SocialCTA() {
     return (
-        <div className=''>
-            <p className='text-center text-lg'>Share your score</p>
-            <div className='flex flex-col justify-center'>
-                <Button>
-                    Facebook
-                </Button>
-                <Button>
-                    Twitter
-                </Button>
-            </div>
+        <div className='flex flex-col gap-2 p-2 pb-4'>
+            <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
+            <Button>
+                Facebook
+            </Button>
+            <Button>
+                Twitter
+            </Button>
         </div>
     )
 }
@@ -89,13 +87,15 @@ export default function Summary() {
     // }, [gamecomplete, navigate])
 
     return (
-        <div className='min-h-screen'>
-            <div className='h-28'></div>
-            <div className="w-full flex flex-col gap-4">
-                <SummaryHeader score={score} />
-                <DateAndTopic date={date} topic={topic} />
-                <ScoreGrid scores={scores} hints={[]} />
-                <TomorrowTopic topic={topic} />
+        <div className='min-h-screen flex flex-col justify-between'>
+            <div>
+                <div className='h-16'></div>
+                <div className="w-full flex flex-col gap-4">
+                    <SummaryHeader score={score} />
+                    <DateAndTopic date={date} topic={topic} />
+                    <ScoreGrid scores={scores} hints={[]} />
+                    <TomorrowTopic topic={topic} />
+                </div>
             </div>
             <SocialCTA />
         </div>
