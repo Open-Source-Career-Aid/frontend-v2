@@ -4,7 +4,7 @@ export default function StickyButton({children}: {children: React.ReactNode}) {
             <div className="mx-auto flex justify-center px-5 bg-[#F6F9FF]"
             style={{width: "430px"}}
             >
-                <div className="w-full">
+                <div className="w-full pt-2 pb-4">
                     {children}
                 </div>
             </div>
