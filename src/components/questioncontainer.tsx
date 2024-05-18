@@ -51,7 +51,7 @@ export default function QuestionsContainer() {
     <div className='max-h-screen overflow-scroll'>
         {gameplay.questions.map((_, index) => (
             index <= gameplay.currentQuestion ? <QuestionContainer 
-            ref={index === gameplay.questions.length - 1 ? lastQuestionRef : null}
+            ref={index === gameplay.currentQuestion ? lastQuestionRef : null}
             key={index} index={index} /> : null
         ))}
     </div>
