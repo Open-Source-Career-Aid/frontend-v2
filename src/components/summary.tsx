@@ -2,10 +2,8 @@ import { useEffect, useState } from "react"
 import { useAppSelector } from "../redux/hook"
 import Button from "./clickables/button"
 import SummaryHeader from "./headers/summaryheader"
-import ScoreGrid from "./summary/scoregrid"
 import ScoreComparision from "./modals/scorecomparision"
-import StickyButton from "./stickybutton"
-import Footer from "./footer"
+import ScoreGrid from "./summary/scoregrid"
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const days: { [key: number]: string } = {1: '1st', 2: '2nd', 3: '3rd', 4: '4th', 5: '5th', 6: '6th', 7: '7th',
@@ -60,21 +58,6 @@ function TomorrowTopic({ topic }: { topic: string }) {
     )
 }
 
-function SocialCTA() {
-    return (
-        <div className='flex flex-col gap-2'>
-            <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
-            <Button>
-                Facebook
-            </Button>
-            <ScoreComparision
-            score={0}
-            globalAverage={50}
-            />
-        </div>
-    )
-}
-
 export default function Summary() {
     const score = useAppSelector(state => state.gameplay.score)
     // const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
@@ -92,18 +75,29 @@ export default function Summary() {
 
     return (
         <div className='min-h-screen flex flex-col justify-between'>
-            <StickyButton>
-                <SocialCTA />
-            </StickyButton>
-            <div className="min-h-screen overflow-scroll">
-                <div className='h-16'></div>
-                <div className="w-full flex flex-col gap-4">
-                    <SummaryHeader score={score} />
-                    <DateAndTopic date={date} topic={topic} />
-                    <ScoreGrid scores={scores} hints={[]} />
-                    <TomorrowTopic topic={topic} />
+            <div className="flex flex-col min-h-screen justify-between">
+                <div>
+                    <div className='h-16'></div>
+                    <div className="w-full flex flex-col gap-4">
+                        <SummaryHeader score={score} />
+                        <DateAndTopic date={date} topic={topic} />
+                        <ScoreGrid scores={scores} hints={[]} />
+                        <TomorrowTopic topic={topic} />
+                    </div>
                 </div>
-                <Footer />
+                {/* <Footer /> */}
+                <div className="gap-2 mx-auto flex flex-col justify-center px-5 bg-[#F6F9FF] pt-2 pb-4"
+                style={{width: "430px"}}
+                >
+                    <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
+                    <Button>
+                        Facebook
+                    </Button>
+                    <ScoreComparision
+                    score={10}
+                    globalAverage={50}
+                    />
+                </div>
             </div>
         </div>
     )

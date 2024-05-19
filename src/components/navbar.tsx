@@ -3,7 +3,7 @@ import InfoModal from "./modals/infomodal"
 
 export default function Navbar() {
     return (
-        <div className="fixed flex flex-row justify-between items-center align-middle shadow-md px-4 z-30 bg-[#F6F9FF]"
+        <div className="fixed flex flex-row justify-between items-center align-middle shadow-md px-4 z-20 bg-[#F6F9FF]"
         style={{
             height: "44px",
             width: "430px",

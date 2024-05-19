@@ -35,7 +35,7 @@ function ScoreBar({ score, type }: { score: number, type?: 'YOU' | 'GLOBAL AVERA
                 <div className={`flex justify-end items-center pr-2 text-text-primary rounded-sm ${ type !== 'DUMBSPLAIN BOT' ? 'bg-blue-selected' : 'bg-green-lite' }`}
                 style={{ 
                     width: `${score}%`,
-                    minWidth: '24px',
+                    minWidth: '36px',
                     height: '36px',
                  }}>
                     {score}
