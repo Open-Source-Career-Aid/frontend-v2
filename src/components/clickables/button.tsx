@@ -18,7 +18,16 @@ const buttonclasses: Record<string, string> = {
     'blueOutlineHover': 'hover:bg-blue-hover', 
     'blueOutlineDisabled': 'bg-transparent text-disabled-button border-disabled-button cursor-not-allowed',
     'blueOutlineLoading': 'bg-card-outlining-strong text-white border-transparent'
-    
+}
+
+const anumationAfterVariants: Record<string, string> = {
+    "default": 'rgba(76, 123, 254, 1)',
+    "blueOutline": 'transparent',
+}
+
+const anumationBeforeVariants: Record<string, string> = {
+    "default": 'rgba(176, 184, 205, 1)',
+    "blueOutline": 'rgba(76, 123, 254, 1)'
 }
 
 const Button: React.FC<ButtonProps> = ({ type = 'default', loading = false, children, onClick }) => {
@@ -26,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({ type = 'default', loading = false, chil
     const ButtonContent = (
         <motion.button 
             className={`${buttonclasses.base} ${buttonclasses[type]} ${ !loading ? '': buttonclasses.disabled }`}
-            animate={{ backgroundColor: loading ? 'rgba(176, 184, 205, 1)' : 'rgba(76, 123, 254, 1)' }}
+            animate={{ backgroundColor: loading ? anumationBeforeVariants[type]: anumationAfterVariants[type] }}
             transition={{ duration: 0.5 }}
             onClick={onClick}
         >

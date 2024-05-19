@@ -73,9 +73,12 @@ export default function ScoreComparision({ score , globalAverage }: { score: num
     return (
         <div className="w-full">
             <Button
+            type="blueOutline"
             onClick={() => setOpen(true)}
             >
-                Compare Score
+                <span className="text-text-primaty font-medium">
+                    Compare Score
+                </span>
             </Button>
             <BasicModal
             height='356px'
