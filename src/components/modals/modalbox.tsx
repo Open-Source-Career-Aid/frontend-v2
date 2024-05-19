@@ -22,7 +22,7 @@ export default function BasicModal({ children, height, width, open, setOpen }: B
         <React.Fragment>
           <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 bg-black opacity-50" onClick={handleClose}></div>
-            <motion.div className="bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 z-50"
+            <motion.div className="bg-white rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 z-50 overflow-hidden"
             style={{
               height: height,
               width: width,

@@ -68,7 +68,7 @@ function SocialCTA() {
                 Facebook
             </Button>
             <ScoreComparision
-            score={50}
+            score={0}
             globalAverage={50}
             />
         </div>
