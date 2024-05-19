@@ -11,7 +11,14 @@ interface ButtonProps {
 const buttonclasses: Record<string, string> = {
     'base': 'w-full py-2 px-4 rounded-full flex items-center justify-center gap-2',
     'default': 'text-white',
-    'disabled': 'pointer-events-none'
+    'disabled': 'pointer-events-none',
+    'loading': 'bg-card-outlining-strong text-white',  
+    'hover': 'bg-blue-hover', 
+    'blueOutline': 'text-blue-primary bg-transparent border-2 border-blue-primary hover:bg-blue-hover',
+    'blueOutlineHover': 'hover:bg-blue-hover', 
+    'blueOutlineDisabled': 'bg-transparent text-disabled-button border-disabled-button cursor-not-allowed',
+    'blueOutlineLoading': 'bg-card-outlining-strong text-white border-transparent'
+    
 }
 
 const Button: React.FC<ButtonProps> = ({ type = 'default', loading = false, children, onClick }) => {
