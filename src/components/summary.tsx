@@ -64,6 +64,7 @@ export default function Summary() {
     const scores = useAppSelector(state => state.gameplay.scores)
     const date = useAppSelector(state => state.gameplay.date)
     const topic = useAppSelector(state => state.gameplay.topic)
+    const hints = useAppSelector(state => state.gameplay.hintsTaken)
     
     // const navigate = useNavigate()
 
@@ -81,7 +82,7 @@ export default function Summary() {
                     <div className="w-full flex flex-col gap-4">
                         <SummaryHeader score={score} />
                         <DateAndTopic date={date} topic={topic} />
-                        <ScoreGrid scores={scores} hints={[]} />
+                        <ScoreGrid scores={scores} hints={hints} />
                         <TomorrowTopic topic={topic} />
                     </div>
                 </div>
