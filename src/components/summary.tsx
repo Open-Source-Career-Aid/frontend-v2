@@ -65,6 +65,7 @@ export default function Summary() {
     const date = useAppSelector(state => state.gameplay.date)
     const topic = useAppSelector(state => state.gameplay.topic)
     const hints = useAppSelector(state => state.gameplay.hintsTaken)
+    const [test, setTest] = useState<string>('')
     
     // const navigate = useNavigate()
 
@@ -73,6 +74,26 @@ export default function Summary() {
     //         navigate('/game')
     //     }
     // }, [gamecomplete, navigate])
+
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+            await navigator.share({
+                title: 'Check out this website!',
+                text: 'Here is an interesting link I found:',
+                url: 'https://example.com',
+            });
+            console.log('Successfully shared');
+            setTest('Shared')
+            } catch (error) {
+            console.error('Error sharing', error);
+            setTest('Error')
+            }
+        } else {
+            console.log('Share API is not supported in your browser.');
+            setTest('Not Supported')
+        }
+        };
 
     return (
         <div className='min-h-screen flex flex-col justify-between'>
@@ -91,8 +112,8 @@ export default function Summary() {
                 style={{width: "430px"}}
                 >
                     <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
-                    <Button>
-                        Facebook
+                    <Button onClick={handleShare}>
+                        Share Your Score {test}
                     </Button>
                     <ScoreComparision
                     score={10}
