@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion , AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 
 type OptionProps = {
@@ -75,24 +75,32 @@ export function Option({
     exit={{ opacity: 0 }}
     onAnimationComplete={handleAnimationEnd}
     >
-        { !disabled ?
+      <AnimatePresence mode="wait">
+        { !disabled &&
         <motion.button
         whileHover={{ backgroundColor: 'rgba(132, 163, 250, 1)' }}
         className={`${optionClasses.base}`}
         onClick={onClick}
         animate={{ backgroundColor: selected ? 'rgba(132, 163, 250, 1)' : 'rgba(255, 255, 255, 1)' }}
         transition={{ duration: 0.2 }}
+        exit={{ opacity: 0 }}
         {...props}
         >
         {children}
-        </motion.button> :
+        </motion.button>}
+        { disabled &&
         <motion.div
         className={`${disabledClass} ${disabledClasses.baseDisabled}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        exit={{ opacity: 0 }}
         {...props}
         >
         {children}
         </motion.div>
         }
+      </AnimatePresence>
     </motion.div>
   );
 }
