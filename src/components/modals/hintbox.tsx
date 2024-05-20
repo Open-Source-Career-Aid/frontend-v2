@@ -1,6 +1,7 @@
 import BasicModal from "./modalbox"
 import { useState } from "react"
 import Points from "../chat/points"
+import Button from "../clickables/button"
 
 function HintBoxHeader() {
     return (
@@ -32,33 +33,40 @@ function HintPoints({ before , after }: { before: number, after: number }) {
     return (
         <div className="flex w-full">
             <div className="flex gap-2 mx-auto">
-                <p className="line-through text-disabled-buttons">{before}</p>
+                <p className="line-through text-text-secondary">{before}</p>
                 <Points status="pending" points={after} />
             </div>
         </div>
     )
 }
 
-function HintBoxFooter({setOpen}: { setOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
+function HintBoxFooter({ setOpen , onGetHint }: { setOpen: React.Dispatch<React.SetStateAction<boolean>> , onGetHint?: () => void }) {
+    const handleGetHint = () => {
+        setOpen(false)
+        onGetHint && onGetHint()
+    }
     return (
         <div className="flex flex-col w-full gap-2">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
-                Got it!
-            </button>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setOpen(false)}>
-                Got it!
-            </button>
+            <Button onClick={handleGetHint}>
+                Get Hint
+            </Button>
+            <Button type="blueOutline" onClick={() => setOpen(false)}>
+                Cancel
+            </Button>
         </div>
     )
 }
 
-export default function HintBox({ before , after }: { before: number, after: number }) {
+export default function HintBox({ before , after , onGetHint }: { before: number, after: number, onGetHint?: () => void }) {
     const [open, setOpen] = useState(false)
     return (
         <div>
-            <button onClick={() => setOpen(true)} className="text-blue-primary">
-                Test Hint Box Modal
-            </button>
+            <Button type="blueOutline" onClick={() => setOpen(true)}>
+                <div className='flex flex-row justify-center gap-2 items-center'>
+                    <img src='/icons/Lightbulb.png' alt='hint' className='w-6 h-6'/>
+                    <span className='text-blue-primary font-medium'>Hint</span>
+                </div>
+            </Button>
             <BasicModal
             height="320px"
             width="320px"
@@ -69,7 +77,7 @@ export default function HintBox({ before , after }: { before: number, after: num
                     <HintBoxHeader />
                     <HintBoxBody />
                     <HintPoints before={before} after={after} />
-                    <HintBoxFooter setOpen={setOpen} />
+                    <HintBoxFooter setOpen={setOpen} onGetHint={onGetHint} />
                 </div>
             </BasicModal>
         </div>

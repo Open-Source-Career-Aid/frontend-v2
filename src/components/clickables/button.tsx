@@ -14,7 +14,7 @@ const buttonclasses: Record<string, string> = {
     'disabled': 'pointer-events-none',
     'loading': 'bg-card-outlining-strong text-white',  
     'hover': 'bg-blue-hover', 
-    'blueOutline': 'text-blue-primary bg-transparent border-2 border-blue-primary hover:bg-blue-hover',
+    'blueOutline': 'text-blue-primary bg-transparent border border-blue-primary hover:bg-blue-hover',
     'blueOutlineHover': 'hover:bg-blue-hover', 
     'blueOutlineDisabled': 'bg-transparent text-disabled-button border-disabled-button cursor-not-allowed',
     'blueOutlineLoading': 'bg-card-outlining-strong text-white border-transparent'

@@ -17,6 +17,7 @@ type gameplayState = {
     currentQuestion: number,
     currentAnswer: number | null,
     questionstates: Array<'pending' | 'won' | 'lost'>,
+    hintsTaken: Array<boolean>,
     previousAnswers: Array<number>,
     questionLoading: boolean,
     submitted: boolean,
@@ -62,6 +63,7 @@ const initialState: gameplayState = {
     currentQuestion: 0,
     currentAnswer: null,
     questionstates: ['pending', 'pending', 'pending', 'pending', 'pending'],
+    hintsTaken: [false, false, false, false, false],
     previousAnswers: [],
     questionLoading: true,
     submitted: false,
@@ -122,6 +124,9 @@ export const gameplaySlice = createSlice({
             state.currentQuestion += 1
             state.questionLoading = true
         }
+    },
+    getHint: (state) => {
+        state.hintsTaken[state.currentQuestion] = true
     }
   },
 })
@@ -138,7 +143,8 @@ export const {
     setQuestionLoading,
     setSubmitted,
     setGameComplete,
-    submitAnswer
+    submitAnswer,
+    getHint
 } = gameplaySlice.actions
 
 export default gameplaySlice.reducer
