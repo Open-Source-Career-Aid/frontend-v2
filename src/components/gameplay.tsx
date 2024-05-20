@@ -47,7 +47,7 @@ export default function Gameplay() {
                     </Button>
                 </Link>
             </StickyButton>
-            <div className="fixed flex justify-center mt-6"
+            <div className="fixed flex justify-center mt-6 z-10"
             style={{
                 width: "430px",
             }}

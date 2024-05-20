@@ -32,7 +32,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 correctOption={gameplay.questions[index].correctAnswerIndex}
                 onAnimationEnd={() => dispatch(setQuestionLoading(false))}
                 />
-                {showHint && !gameplay.hintsTaken[index] &&
+                {showHint && !gameplay.hintsTaken[index] && !gameplay.questionLoading &&
                 <div className='flex justify-end'>
                     <div className='w-fit'>
                         <HintBox before={gameplay.score} after={gameplay.score} onGetHint={() => dispatch(getHint())} />
