@@ -65,7 +65,6 @@ export default function Summary() {
     const date = useAppSelector(state => state.gameplay.date)
     const topic = useAppSelector(state => state.gameplay.topic)
     const hints = useAppSelector(state => state.gameplay.hintsTaken)
-    const [test, setTest] = useState<string>('')
     
     // const navigate = useNavigate()
 
@@ -78,20 +77,30 @@ export default function Summary() {
     const handleShare = async () => {
         if (navigator.share) {
             try {
+            const dateParts = date.split('/')
+            const month = parseInt(dateParts[0])
+            const day = parseInt(dateParts[1])
+            const year = parseInt(dateParts[2])
+            const formattedDate = `${months[month - 1]} ${days[day]} ${year}`
+            let _title = `Dumbnes Quotient: ${score} \n\n${formattedDate} "${topic}"`
+            let _text = ''
+            for (let i = 0; i < scores.length; i++) {
+                if (scores[i] !== 0) {
+                    _text += '🟩'
+                } else {
+                    _text += '🟥'
+                }
+            }
             await navigator.share({
-                title: 'Check out this website!',
-                text: 'Here is an interesting link I found:',
-                url: 'https://example.com',
+                title: _title,
+                text: _text,
+                url: 'https://dumbsplain.com/',
             });
-            console.log('Successfully shared');
-            setTest('Shared')
             } catch (error) {
-            console.error('Error sharing', error);
-            setTest('Error')
+            alert('Error sharing');
             }
         } else {
-            console.log('Share API is not supported in your browser.');
-            setTest('Not Supported')
+            alert('Share not supported in your browser');
         }
         };
 
@@ -113,7 +122,7 @@ export default function Summary() {
                 >
                     <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
                     <Button onClick={handleShare}>
-                        Share Your Score {test}
+                        Share Your Score
                     </Button>
                     <ScoreComparision
                     score={10}
