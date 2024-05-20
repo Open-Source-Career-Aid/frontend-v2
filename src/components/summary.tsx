@@ -82,8 +82,8 @@ export default function Summary() {
             const day = parseInt(dateParts[1])
             const year = parseInt(dateParts[2])
             const formattedDate = `${months[month - 1]} ${days[day]} ${year}`
-            let _title = `Dumbnes Quotient: ${score} \n\n${formattedDate} "${topic}"`
-            let _text = ''
+            let _title = `Dumbness Quotient: ${score} - ${formattedDate} "${topic}"`
+            let _text = `Dumbness Quotient: ${score} \n\n${formattedDate} "${topic}"\n\n`
             for (let i = 0; i < scores.length; i++) {
                 if (scores[i] !== 0) {
                     _text += '🟩'
