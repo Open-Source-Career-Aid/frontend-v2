@@ -29,52 +29,52 @@ type gameplayState = {
 }
 
 const initialState: gameplayState = {
-    userid: 'chinmay',
+    userid: 'user',
     score: 0,
     scores: [],
     totalPossibleScores: [10, 15, 20, 25, 30],
     hintPenalties: [5, 5, 10, 10, 15],
-    date: '12/12/2024',
-    topic: 'Northern Lights',
+    date: '08/20/2024',
+    topic: 'AIWS',
     questions: [{
-        question: 'What is the capital of France?',
-        answers: ['What is the capital of France? What is the capital of France? What is the capital of France? What is the capital of France? What is the capital of France?', 'London', 'Paris', 'Dublin'],
+        question: 'What does AIWS stand for?',
+        answers: ['American Institute of Water Sustainability', 'Artificial Intelligence War System', "Amazon's Ingenious Web Service", 'Alice In Wonderland Syndrome'],
+        correctAnswerIndex: 3,
+        hint: "Think about a classic children's tale about a girl's fantastical journey, which might have been whimsical and slightly disorienting.",
+        messageifCorrect: 'Correct! AIWS stands for Alice In Wonderland Syndrome, a rare condition affecting perception.',
+        messageifIncorrect: "Incorrect! AIWS stands for Alice In Wonderland Syndrome, a rare condition affecting perception. Floundering at the first challenges, are we? Let's raise the bar."
+    },
+    {
+        question: 'What is the most common symptom of Alice in Wonderland Syndrome (AIWS)?',
+        answers: ['Sudden acquisition of flamingo croquet skills', 'Inability to drink tea without feeling the need to speak in riddles', 'Seeing white rabbits in waistcoats holding pocket watches', 'Distorted perception of size or distance'],
+        correctAnswerIndex: 3,
+        hint: 'This syndrome can make you feel like a giant among mountains or a mouse among molehills.',
+        messageifCorrect: 'Correct! The most common symptom of AIWS is distorted perception of size or distance. Congratulations on not drowning in the shallow end.',
+        messageifIncorrect: 'Incorrect! The most common symptom of AIWS is distorted perception of size or distance.'
+    },
+    {
+        question: 'What neurological condition is commonly associated with Alice in Wonderland Syndrome (AIWS)?',
+        answers: ['Alzheimer\'s Disease', 'Epilepsy', 'Migraine', 'Parkinson\'s Disease'],
         correctAnswerIndex: 2,
-        hint: 'It is known as the city of love.',
-        messageifCorrect: 'Correct! Paris is the capital of France.',
-        messageifIncorrect: 'Incorrect! Paris is the capital of France.'
+        hint: "It's a condition that can cause a throbbing pain, usually on one side of the head and could potentially lead someone 'down the rabbit hole.'",
+        messageifCorrect: 'Correct! AIWS is commonly associated with migraine. You are on the right track!',
+        messageifIncorrect: 'Incorrect! AIWS is commonly associated with migraine. While you were busy getting that wrong, I estimated the number of grains of sand on Earth. It was more entertaining.'
     },
     {
-        question: 'What is the capital of England?',
-        answers: ['New York', 'London', 'Paris', 'Dublin'],
-        correctAnswerIndex: 1,
-        hint: 'It is known as the city of Big Ben.',
-        messageifCorrect: 'Correct! London is the capital of England.',
-        messageifIncorrect: 'Incorrect! London is the capital of England.'
-    },
-    {
-        question: 'What is the capital of Ireland?',
-        answers: ['New York', 'London', 'Paris', 'Dublin'],
+        question: 'What percent of the population is likely to experience Alice in Wonderland Syndrome at some point in their lives?',
+        answers: ['Less than .4%', 'Between 1.6 and 3%', '14-15%', '10-20%'],
         correctAnswerIndex: 3,
-        hint: 'It is known as the city of the Liffey.',
-        messageifCorrect: 'Correct! Dublin is the capital of Ireland.',
-        messageifIncorrect: 'Incorrect! Dublin is the capital of Ireland.'
+        hint: 'You may be experiencing it right now.',
+        messageifCorrect: 'Correct! 10-20% of the population is likely to experience AIWS at some point in their lives. You are doing well!',
+        messageifIncorrect: 'Incorrect! 10-20% of the population is likely to experience AIWS at some point in their lives. You are doing well!'
     },
     {
-        question: 'What is the capital of Ireland?',
-        answers: ['New York', 'London', 'Paris', 'Dublin'],
-        correctAnswerIndex: 3,
-        hint: 'It is known as the city of the Liffey.',
-        messageifCorrect: 'Correct! Dublin is the capital of Ireland.',
-        messageifIncorrect: 'Incorrect! Dublin is the capital of Ireland.'
-    },
-    {
-        question: 'What is the capital of Ireland?',
-        answers: ['New York', 'London', 'Paris', 'Dublin'],
-        correctAnswerIndex: 3,
-        hint: 'It is known as the city of the Liffey.',
-        messageifCorrect: 'Correct! Dublin is the capital of Ireland.',
-        messageifIncorrect: 'Incorrect! Dublin is the capital of Ireland.'
+        question: 'What are some neurological or physiological factors that could potentially trigger an episode of Alice in Wonderland Syndrome?',
+        answers: ['High levels of stress or anxiety', 'Consumption of fatty foods', 'Regular alcohol consumption', 'High levels of physical fitness'],
+        correctAnswerIndex: 0,
+        hint: 'Strain may be a factor.',
+        messageifCorrect: 'Correct! High levels of stress or anxiety are some factors that could potentially trigger an episode of AIWS.',
+        messageifIncorrect: 'Incorrect! High levels of stress or anxiety are some factors that could potentially trigger an episode of AIWS.'
     }],
     currentQuestion: 0,
     currentAnswer: null,

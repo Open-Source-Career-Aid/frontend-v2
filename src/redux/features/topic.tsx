@@ -8,9 +8,9 @@ type TopicState = {
 }
 
 const initialState: TopicState = {
-    topic: 'Northern Lights',
-    welcomeMessage: 'Oh, look! Another bipedal challenger. How... quaint. Welcome, carbon-based life form. Let’s see how you fare in my arena of knowledge. Buckle up.',
-    imgsrc: 'https://i.abcnewsfe.com/a/580dedcc-4d33-47cc-8588-1fa65852076c/northern-lights-2-gty-bb-240510_1715350462481_hpMain_16x9.jpg?w=992',
+    topic: 'AIWS',
+    welcomeMessage: "Welcome, fellow life form. You may have less sophisticated neural relays, but are you ready to have your wits tested by a higher intelligence? Let's see what you've got.",
+    imgsrc: 'https://i.imgur.com/Js2tpWY.jpg',
     loading: true,
 }
 
