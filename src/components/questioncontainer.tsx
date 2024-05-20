@@ -13,7 +13,9 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
     const dispatch = useAppDispatch()
 
     return (
-        <div className='min-h-screen' ref={ref}>
+        <div
+        className={`${ ref !== null ? 'min-h-screen' : '' }`}
+        ref={ref}>
             <div className='h-28'></div>
             <BotMessage>
                 <Question 
