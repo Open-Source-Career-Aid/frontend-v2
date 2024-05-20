@@ -5,6 +5,7 @@ import BotMessage from './chat/botmessage'
 import Question from './chat/question'
 import Options from './clickables/option'
 import HintBox from './modals/hintbox'
+import { motion } from 'framer-motion'
 
 const PageBreak = () => {
     return(
@@ -12,7 +13,6 @@ const PageBreak = () => {
     )
 }
 
-// function QuestionContainer({ index }: { index: number }) {
 const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, showHint?: boolean }>(({ index , showHint = false }, ref) => {
     const gameplay = useAppSelector(state => state.gameplay)
     const questionstates = useAppSelector(state => state.gameplay.questionstates)
@@ -31,7 +31,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 questionindex={index}
                 totalquestions={gameplay.questions.length}
                 status={questionstates[index]}
-                points={gameplay.score}
+                points={gameplay.totalPossibleScores[index]}
                 />
                 <Options
                 options={gameplay.questions[index].answers}
@@ -42,13 +42,43 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 />
                 {showHint && !gameplay.hintsTaken[index] && !gameplay.questionLoading &&
                 <div className='flex justify-end'>
-                    <div className='w-fit'>
-                        <HintBox before={gameplay.score} after={gameplay.score} onGetHint={() => dispatch(getHint())} />
-                    </div>
+                    <motion.div
+                    className='w-fit'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    >
+                        <HintBox before={gameplay.totalPossibleScores[index]} after={gameplay.totalPossibleScores[index]-gameplay.hintPenalties[index]} onGetHint={() => dispatch(getHint())} />
+                    </motion.div>
                 </div>}
             </BotMessage>
             {gameplay.hintsTaken[index] && <BotMessage>
-                <p className='text-text-primary text-start'>{gameplay.questions[index].hint}</p>
+                <motion.p 
+                className='text-text-primary text-start'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                >{gameplay.questions[index].hint}</motion.p>
+            </BotMessage>}
+            {gameplay.questionstates[index] === 'pending' ? null : gameplay.previousAnswers[index] === gameplay.questions[index].correctAnswerIndex ? <BotMessage>
+                <motion.p 
+                className='text-text-primary text-start'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                >{gameplay.questions[index].messageifCorrect}</motion.p>
+            </BotMessage>
+            : <BotMessage>
+                <motion.p 
+                className='text-text-primary text-start'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                >{gameplay.questions[index].messageifIncorrect}</motion.p>
             </BotMessage>}
         </div>
     )

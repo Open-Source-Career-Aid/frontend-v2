@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { submitAnswer } from "../redux/features/gameplay";
+import { submitAnswer , nextQuestion } from "../redux/features/gameplay";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import Button from "./clickables/button";
 import { TopicHeader } from "./headers/topicheader";
@@ -34,6 +34,13 @@ export default function Gameplay() {
         }
     }, [gamecomplete, submitted])
 
+    const handleButtonClick = () => {
+        if (buttonstate === gameButtonStates.SUBMITANSWER) {
+            dispatch(submitAnswer())
+        } else if (buttonstate === gameButtonStates.NEXTQUESTION) {
+            dispatch(nextQuestion())
+        }
+    }
 
     return (
         <div className="relative w-full h-full">
@@ -41,7 +48,7 @@ export default function Gameplay() {
                 <Link to={gamecomplete ? '/summary' : '#'}>
                     <Button
                     loading={questionLoading}
-                    onClick={() => dispatch(submitAnswer())}
+                    onClick={() => handleButtonClick()}
                     >
                         {buttonstate}
                     </Button>
