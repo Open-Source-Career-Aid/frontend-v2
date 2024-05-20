@@ -83,7 +83,7 @@ export default function Summary() {
             const year = parseInt(dateParts[2])
             const formattedDate = `${months[month - 1]} ${days[day]} ${year}`
             let _title = `Dumbness Quotient: ${score} - ${formattedDate} "${topic}"`
-            let _text = `Dumbness Quotient: ${score} \n\n${formattedDate} "${topic}"\n\n`
+            let _text = `Dumbness Quotient: ${score} \n${formattedDate} "${topic}"\n`
             for (let i = 0; i < scores.length; i++) {
                 if (scores[i] !== 0) {
                     _text += '🟩'
@@ -91,6 +91,7 @@ export default function Summary() {
                     _text += '🟥'
                 }
             }
+            _text += '\n'
             await navigator.share({
                 title: _title,
                 text: _text,
