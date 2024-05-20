@@ -6,6 +6,12 @@ import Question from './chat/question'
 import Options from './clickables/option'
 import HintBox from './modals/hintbox'
 
+const PageBreak = () => {
+    return(
+        <hr className='border-t-1 my-4 w-full border-page-break' />
+    )
+}
+
 // function QuestionContainer({ index }: { index: number }) {
 const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, showHint?: boolean }>(({ index , showHint = false }, ref) => {
     const gameplay = useAppSelector(state => state.gameplay)
@@ -16,7 +22,9 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
         <div
         className={`${ ref !== null ? 'min-h-screen' : '' }`}
         ref={ref}>
-            <div className='h-28'></div>
+            <div className='flex flex-col justify-center h-28'>
+                {index > 0 && <PageBreak />}
+            </div>
             <BotMessage>
                 <Question 
                 question={gameplay.questions[index].question}
