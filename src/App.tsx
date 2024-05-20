@@ -4,18 +4,21 @@ import Landing from './pages/landing';
 import Game from "./pages/game";
 import Navbar from "./components/navbar";
 import SummaryPage from "./pages/summary";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
     <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto">
       <Navbar />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/game" element={<Game />} />
-          <Route path="/summary" element={<SummaryPage />} />
-        </Routes>
-      </Router>
+      <AnimatePresence>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/game" element={<Game />} />
+            <Route path="/summary" element={<SummaryPage />} />
+          </Routes>
+        </Router>
+      </AnimatePresence>
     </div>
   );
 }
