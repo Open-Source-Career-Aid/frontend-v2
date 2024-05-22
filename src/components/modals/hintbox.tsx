@@ -8,7 +8,7 @@ function HintBoxHeader() {
         <div className="flex justify-between items-center w-full">
             <div className="flex justify-center items-center size-12 rounded-full bg-blue-illustration mx-auto">
                 <img
-                    src="icons/Lightbulb.png"
+                    src="icons/Lightbulb.svg"
                     alt="hint"
                     className="size-6"
                 />
@@ -63,7 +63,7 @@ export default function HintBox({ before , after , onGetHint }: { before: number
         <div>
             <Button type="blueOutline" onClick={() => setOpen(true)}>
                 <div className='flex flex-row justify-center gap-2 items-center'>
-                    <img src='/icons/Lightbulb.png' alt='hint' className='w-6 h-6'/>
+                    <img src='/icons/Lightbulb.svg' alt='hint' className='w-6 h-6'/>
                     <span className='text-blue-primary font-medium'>Hint</span>
                 </div>
             </Button>

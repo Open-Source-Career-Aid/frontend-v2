@@ -22,7 +22,7 @@ const messages: { [key: string]: string } = {
 }
 
 function ScoreBar({ score, type }: { score: number, type?: 'YOU' | 'GLOBAL AVERAGE' | 'DUMBSPLAIN BOT' }) {
-    const icon = type === 'YOU' ? '/icons/User.png' : type === 'GLOBAL AVERAGE' ? '/icons/World.png' : '/icons/ChatBot-large.png';
+    const icon = type === 'YOU' ? '/icons/User.svg' : type === 'GLOBAL AVERAGE' ? '/icons/World.svg' : '/icons/ChatBot-large.svg';
     return (
         <div className="flex flex-row w-full rounded-lg"
         >

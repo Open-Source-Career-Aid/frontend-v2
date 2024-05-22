@@ -10,7 +10,7 @@ export default function BotMessage({ children }: BotMessageProps) {
             <div className="flex flex-row items-center gap-2">
                 <img
                     className="size-8"
-                    src="/icons/ChatBot-small.png"
+                    src="/icons/ChatBot-small.svg"
                     alt="Profile"
                 />
                 <span className="text-text-secondary font-light">

@@ -26,15 +26,15 @@ function InfoModalBody() {
     return (
         <div className="flex flex-col w-full gap-4 mx-auto">
             <GameStep 
-            imgsrc="icons/ChatBot-large.png"
+            imgsrc="icons/ChatBot-large.svg"
             title="AI will ask you the questions"
             content="Every day there’s a new topic with 5 trivia questions." />
             <GameStep 
-            imgsrc="icons/Lightbulb.png"
+            imgsrc="icons/Lightbulb.svg"
             title="Hints can help you"
             content="Harder questions are worth more points." />
             <GameStep 
-            imgsrc="icons/Award.png"
+            imgsrc="icons/Award.svg"
             title="Earn your Dumbness quotient"
             content="Humans compare each other’s IQ, but AI just judges your DQ." />
         </div>
@@ -69,7 +69,7 @@ export default function InfoModal() {
     return (
         <div className="w-fit">
             <button onClick={() => setOpen(true)} className="text-blue-primary">
-                <img src="icons/Help.png" alt="info" className='w-6' />
+                <img src="icons/Help.svg" alt="info" className='w-6' />
             </button>
             <BasicModal
             height="424px"

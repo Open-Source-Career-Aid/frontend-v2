@@ -8,7 +8,7 @@ function ScoreElement({ score , ishint }: { score: number, ishint: boolean }) {
       </div>
       <div className="flex justify-between items-center w-[51.5px] h-[51.5px] rounded-lg">
         { ishint &&
-        <img src="/icons/Lightbulb.png" alt="hint" className="w-8 h-8 m-auto" />
+        <img src="/icons/Lightbulb.svg" alt="hint" className="w-8 h-8 m-auto" />
         }
       </div>
     </div>
