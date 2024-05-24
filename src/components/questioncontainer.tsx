@@ -26,7 +26,8 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
             <div className='flex flex-col justify-center h-28'>
                 {index > 0 && <PageBreak />}
             </div>
-            <BotMessage>
+            <BotMessage fullwidth>
+                <div className='w-full pl-10'>
                 <Question 
                 question={gameplay.questions[index].question}
                 questionindex={index}
@@ -34,6 +35,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 status={questionstates[index]}
                 points={gameplay.totalPossibleScores[index]}
                 />
+                </div>
                 <Options
                 options={gameplay.questions[index].answers}
                 onChange={(index) => dispatch(setCurrentAnswer(index))}

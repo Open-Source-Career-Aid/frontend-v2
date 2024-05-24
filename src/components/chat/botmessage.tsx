@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
 
 interface BotMessageProps {
-  children: ReactNode;
+    children: ReactNode;
+    fullwidth?: boolean;
 }
 
-export default function BotMessage({ children }: BotMessageProps) {
+export default function BotMessage({ children , fullwidth = false }: BotMessageProps) {
     return (
         <div className="flex flex-col items-start w-full">
             <div className="flex flex-row items-center gap-2">
@@ -17,7 +18,7 @@ export default function BotMessage({ children }: BotMessageProps) {
                     DUMBSPLAIN BOT
                 </span>
             </div>
-            <div className="pl-10 w-full">
+            <div className={"w-full" + (fullwidth ? "" : " pl-10")}>
                 <div className="text-left w-full">
                     {children}
                 </div>
