@@ -30,12 +30,18 @@ const anumationBeforeVariants: Record<string, string> = {
     "blueOutline": 'rgba(76, 123, 254, 1)'
 }
 
+const whileTapVariants: Record<string, any> = {
+    "default": { backgroundColor: 'rgba(19, 78, 242, 1)' },
+    "blueOutline": { borderColor: 'rgba(19, 78, 242, 1)' , textColor: 'rgba(19, 78, 242, 1)' }
+}
+
 const Button: React.FC<ButtonProps> = ({ type = 'default', loading = false, children, onClick }) => {
 
     const ButtonContent = (
         <motion.button 
             className={`${buttonclasses.base} ${buttonclasses[type]} ${ !loading ? '': buttonclasses.disabled }`}
-            animate={{ backgroundColor: loading ? anumationBeforeVariants[type]: anumationAfterVariants[type] }}
+            animate={{ backgroundColor: loading ? anumationBeforeVariants[type]: anumationAfterVariants[type]}}
+            whileTap={whileTapVariants[type]}
             transition={{ duration: 0.5 }}
             onClick={onClick}
         >
