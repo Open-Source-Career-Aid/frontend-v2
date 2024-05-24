@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { setCurrentAnswer, setQuestionLoading, getHint } from '../redux/features/gameplay'
 import { useAppDispatch, useAppSelector } from '../redux/hook'
 import BotMessage from './chat/botmessage'
+import HintMessage from './chat/hintmessage'
 import Question from './chat/question'
 import Options from './clickables/option'
 import HintBox from './modals/hintbox'
@@ -53,7 +54,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                     </motion.div>
                 </div>}
             </BotMessage>
-            {gameplay.hintsTaken[index] && <BotMessage>
+            {gameplay.hintsTaken[index] && <HintMessage>
                 <motion.p 
                 className='text-text-primary text-start'
                 initial={{ opacity: 0 }}
@@ -61,7 +62,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 >{gameplay.questions[index].hint}</motion.p>
-            </BotMessage>}
+            </HintMessage>}
             {gameplay.questionstates[index] === 'pending' ? null : gameplay.previousAnswers[index] === gameplay.questions[index].correctAnswerIndex ? <BotMessage>
                 <motion.p 
                 className='text-text-primary text-start'
