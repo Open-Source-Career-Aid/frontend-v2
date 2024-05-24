@@ -90,10 +90,7 @@ export default function QuestionsContainer() {
     const lastQuestionRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        console.log('scrolling')
         if (lastQuestionRef.current) {
-            console.log('scrolling')
-            console.log(lastQuestionRef.current)
             lastQuestionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [gameplay.currentQuestion])
