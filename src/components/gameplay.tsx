@@ -16,7 +16,6 @@ const gameButtonStates = {
 
 export default function Gameplay() {
     const gameplay = useAppSelector(state => state.gameplay)
-    const questionLoading = useAppSelector(state => state.gameplay.questionLoading)
     const submitted = useAppSelector(state => state.gameplay.submitted)
     const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
 
@@ -47,7 +46,9 @@ export default function Gameplay() {
             <StickyButton>
                 <Link to={gamecomplete ? '/summary' : '#'}>
                     <Button
-                    loading={questionLoading}
+                    loading={buttonstate === gameButtonStates.SUBMITANSWER ? 
+                        gameplay.currentAnswer === null : 
+                        false}
                     onClick={() => handleButtonClick()}
                     >
                         {buttonstate}
