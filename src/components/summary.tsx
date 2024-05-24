@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useAppSelector } from "../redux/hook"
 import Button from "./clickables/button"
 import SummaryHeader from "./headers/summaryheader"
@@ -65,6 +65,16 @@ export default function Summary() {
     const date = useAppSelector(state => state.gameplay.date)
     const topic = useAppSelector(state => state.gameplay.topic)
     const hints = useAppSelector(state => state.gameplay.hintsTaken)
+
+    const footerRef = useRef<HTMLDivElement>(null)
+
+    const [bodyHeight, setBodyHeight] = useState<number>(0)
+
+    useEffect(() => {
+        if (footerRef.current) {
+            setBodyHeight(window.innerHeight - footerRef.current.clientHeight)
+        }
+    }, [footerRef])
     
     // const navigate = useNavigate()
 
@@ -98,7 +108,7 @@ export default function Summary() {
                 url: 'https://dumbsplain.com/',
             });
             } catch (error) {
-            alert('Error sharing');
+                return;
             }
         } else {
             alert('Share not supported in your browser');
@@ -108,7 +118,11 @@ export default function Summary() {
     return (
         <div className='min-h-screen flex flex-col justify-between'>
             <div className="flex flex-col min-h-screen justify-between">
-                <div>
+                <div className="overflow-scroll"
+                style={{
+                    height: bodyHeight
+                }}
+                >
                     <div className='h-16'></div>
                     <div className="w-full flex flex-col gap-4">
                         <SummaryHeader score={score} />
@@ -117,9 +131,11 @@ export default function Summary() {
                         <TomorrowTopic topic={topic} />
                     </div>
                 </div>
-                {/* <Footer /> */}
                 <div className="gap-2 mx-auto flex flex-col justify-center px-5 bg-[#F6F9FF] pt-2 pb-4"
-                style={{width: "430px"}}
+                style={{
+                    width: "430px"
+                }}
+                ref={footerRef}
                 >
                     <p className='text-center text-lg text-text-primary'>Are your friends as dumb as you?</p>
                     <Button onClick={handleShare}>
