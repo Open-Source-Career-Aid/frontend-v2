@@ -40,7 +40,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 correctOption={gameplay.questions[index].correctAnswerIndex}
                 onAnimationEnd={() => dispatch(setQuestionLoading(false))}
                 />
-                {showHint && !gameplay.hintsTaken[index] && !gameplay.questionLoading &&
+                {showHint && !gameplay.hintsTaken[index] && !gameplay.questionLoading && !gameplay.submitted &&
                 <div className='flex justify-end'>
                     <motion.div
                     className='w-fit'
