@@ -2,15 +2,15 @@ import BasicModal from "./modalbox"
 import { useState } from "react"
 import Points from "../chat/points"
 import Button from "../clickables/button"
+import IconComponent from '../icon'; 
 
 function HintBoxHeader() {
     return (
         <div className="flex justify-between items-center w-full">
             <div className="flex justify-center items-center size-12 rounded-full bg-blue-illustration mx-auto">
-                <img
-                    src="icons/Lightbulb.svg"
-                    alt="hint"
-                    className="size-6"
+                <IconComponent
+                name="Lightbulb"
+                classNames="size-6"
                 />
             </div>
         </div>
@@ -63,7 +63,10 @@ export default function HintBox({ before , after , onGetHint }: { before: number
         <div>
             <Button type="blueOutline" onClick={() => setOpen(true)}>
                 <div className='flex flex-row justify-center gap-2 items-center'>
-                    <img src='/icons/Lightbulb.svg' alt='hint' className='w-6 h-6'/>
+                <IconComponent
+                name="Lightbulb"
+                classNames="w-6 h-6"
+                />
                     <span className='text-blue-primary font-medium'>Hint</span>
                 </div>
             </Button>

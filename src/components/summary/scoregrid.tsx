@@ -1,3 +1,4 @@
+import IconComponent from '../icon'; 
 function ScoreElement({ score , ishint }: { score: number, ishint: boolean }) {
   const _bg = score > 0 ? "bg-green-lite" : "bg-red-lite";
   return (
@@ -8,7 +9,7 @@ function ScoreElement({ score , ishint }: { score: number, ishint: boolean }) {
       </div>
       <div className="flex justify-between items-center w-[51.5px] h-[51.5px] rounded-lg">
         { ishint &&
-        <img src="/icons/Lightbulb.svg" alt="hint" className="w-8 h-8 m-auto" />
+        <IconComponent name="Lightbulb" classNames="w-8 h-8 m-auto" />
         }
       </div>
     </div>

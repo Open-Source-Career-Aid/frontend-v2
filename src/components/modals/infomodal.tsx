@@ -1,6 +1,7 @@
 import { useState , useEffect } from "react"
 import BasicModal from "./modalbox"
 import Button from "../clickables/button"
+import IconComponent from '../icon'; 
 
 function InfoModalHeader() {
     return (
@@ -14,7 +15,7 @@ function GameStep({ imgsrc , title , content }: { imgsrc: string , title: string
     return (
         <div className="flex flex-col">
             <div className="flex flex-row justify-start font-bold items-center w-full">
-                <img src={imgsrc} alt="info" className='size-8 mr-2' />
+                <IconComponent name={imgsrc} classNames="size-8 mr-2" />
                 <p className="text-blue-primary">{title}</p>
             </div>
             <p className="text-text-primary pl-10">{content}</p>
@@ -26,15 +27,15 @@ function InfoModalBody() {
     return (
         <div className="flex flex-col w-full gap-4 mx-auto">
             <GameStep 
-            imgsrc="icons/ChatBot-large.svg"
+            imgsrc="ChatBot-large"
             title="AI will ask you the questions"
             content="Every day there’s a new topic with 5 trivia questions." />
             <GameStep 
-            imgsrc="icons/Lightbulb.svg"
+            imgsrc="Lightbulb"
             title="Hints can help you"
             content="Harder questions are worth more points." />
             <GameStep 
-            imgsrc="icons/Award.svg"
+            imgsrc="Award"
             title="Earn your Dumbness quotient"
             content="Humans compare each other’s IQ, but AI just judges your DQ." />
         </div>
@@ -69,7 +70,7 @@ export default function InfoModal() {
     return (
         <div className="w-fit">
             <button onClick={() => setOpen(true)} className="text-blue-primary">
-                <img src="icons/Help.svg" alt="info" className='w-6' />
+                <IconComponent name="Help" classNames="w-6" />
             </button>
             <BasicModal
             height="424px"

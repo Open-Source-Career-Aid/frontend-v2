@@ -2,6 +2,7 @@ import BasicModal from "./modalbox";
 import { useState } from "react";
 import Button from "../clickables/button";
 import Cross from "../clickables/cross";
+import IconComponent from '../icon';
 
 const titles: { [key: string]: string } = {
     "globalaverage": "Pretty average!",
@@ -22,14 +23,13 @@ const messages: { [key: string]: string } = {
 }
 
 function ScoreBar({ score, type }: { score: number, type?: 'YOU' | 'GLOBAL AVERAGE' | 'DUMBSPLAIN BOT' }) {
-    const icon = type === 'YOU' ? '/icons/User.svg' : type === 'GLOBAL AVERAGE' ? '/icons/World.svg' : '/icons/ChatBot-large.svg';
+    const icon = type === 'YOU' ? 'User' : type === 'GLOBAL AVERAGE' ? 'World' : 'ChatBot-large';
     return (
         <div className="flex flex-row w-full rounded-lg"
         >
-            <img
-            src={icon}
-            alt="icon"
-            className="w-8 h-8 mr-2"
+           <IconComponent
+            name={icon}
+            classNames="w-8 h-8 mr-2"
             />
             <div className="w-full flex flex-col justify-start items-start">
                 <div className={`flex justify-end items-center pr-2 text-text-primary rounded-sm ${ type !== 'DUMBSPLAIN BOT' ? 'bg-blue-selected' : 'bg-green-lite' }`}

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import IconComponent from '../icon';
 
 interface BotMessageProps {
   children: ReactNode;
@@ -8,10 +9,9 @@ export default function BotMessage({ children }: BotMessageProps) {
     return (
         <div className="flex flex-col items-start w-full">
             <div className="flex flex-row items-center gap-2">
-                <img
-                    className="size-8"
-                    src="/icons/ChatBot-small.svg"
-                    alt="Profile"
+                <IconComponent
+                name="ChatBot-small"
+                classNames="size-8"
                 />
                 <span className="text-text-secondary font-light">
                     DUMBSPLAIN BOT
