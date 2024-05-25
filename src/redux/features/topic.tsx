@@ -10,7 +10,7 @@ type TopicState = {
 const initialState: TopicState = {
     topic: 'AIWS',
     welcomeMessage: "Welcome, fellow life form. You may have less sophisticated neural relays, but are you ready to have your wits tested by a higher intelligence? Let's see what you've got.",
-    imgsrc: 'https://i.imgur.com/Js2tpWY.jpg',
+    imgsrc: 'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg',
     loading: true,
 }
 
