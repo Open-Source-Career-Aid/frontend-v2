@@ -65,23 +65,14 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 transition={{ duration: 0.5 }}
                 >{gameplay.questions[index].hint}</motion.p>
             </HintMessage>}
-            {gameplay.questionstates[index] === 'pending' ? null : gameplay.previousAnswers[index] === gameplay.questions[index].correctAnswerIndex ? <BotMessage>
+            {gameplay.questionstates[index] === 'pending' ? null : <BotMessage>
                 <motion.p 
                 className='text-text-primary text-start'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                >{gameplay.questions[index].messageifCorrect}</motion.p>
-            </BotMessage>
-            : <BotMessage>
-                <motion.p 
-                className='text-text-primary text-start'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                >{gameplay.questions[index].messageifIncorrect}</motion.p>
+                >{gameplay.questions[index].messages[gameplay.previousAnswers[index]]}</motion.p>
             </BotMessage>}
         </div>
     )
