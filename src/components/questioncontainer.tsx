@@ -82,23 +82,14 @@ export default function QuestionsContainer() {
     const gameplay = useAppSelector(state => state.gameplay)
     const lastQuestionRef = useRef<HTMLDivElement | null>(null);
 
-    const outerDivRef = useRef<HTMLDivElement | null>(null);
-
     useEffect(() => {
         if (lastQuestionRef.current) {
             lastQuestionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [gameplay.currentQuestion])
 
-    // whenever teh div content changes, scroll to the bottom
-    useEffect(() => {
-        if (outerDivRef.current) {
-            outerDivRef.current.scrollTop = outerDivRef.current.scrollHeight;
-        }
-    }, [gameplay])
-
     return (
-    <div className='max-h-screen overflow-scroll' ref={outerDivRef}>
+    <div className='max-h-screen overflow-scroll'>
         {gameplay.questions.map((_, index) => (
             index <= gameplay.currentQuestion ? <QuestionContainer 
             ref={index === gameplay.currentQuestion ? lastQuestionRef : null}
