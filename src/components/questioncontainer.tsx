@@ -37,10 +37,10 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 />
                 </div>
                 <Options
-                options={gameplay.questions[index].answers}
+                options={gameplay.questions[index].options}
                 onChange={(index) => dispatch(setCurrentAnswer(index))}
                 disabled={'pending'!==questionstates[index]}
-                correctOption={gameplay.questions[index].correctAnswerIndex}
+                correctOption={gameplay.questions[index].correct_option}
                 onAnimationEnd={() => dispatch(setQuestionLoading(false))}
                 />
                 {showHint && !gameplay.hintsTaken[index] && !gameplay.questionLoading && !gameplay.submitted &&

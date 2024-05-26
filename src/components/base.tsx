@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useAppSelector , useAppDispatch } from "../redux/hook";
-import { setLoading } from "../redux/features/topic";
+import { setLoading } from "../redux/features/gameplay";
 import BotMessage from "./chat/botmessage";
 import Footer from "./footer";
 import { TopicHeader } from "./headers/topicheader";
@@ -12,10 +12,10 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom";
 
 export default function Base() {
-    const topic = useAppSelector(state => state.topic.topic)
-    const welcomeMessage = useAppSelector(state => state.topic.welcomeMessage)
-    const imgsrc = useAppSelector(state => state.topic.imgsrc)
-    const loading = useAppSelector(state => state.topic.loading)
+    const topic = useAppSelector(state => state.gameplay.topic)
+    const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
+    const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
+    const loading = useAppSelector(state => state.gameplay.topicloading)
     const dispatch = useAppDispatch()
 
     const handleLoading = () => {

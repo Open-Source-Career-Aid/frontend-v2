@@ -6,10 +6,14 @@ import Navbar from "./components/navbar";
 import SummaryPage from "./pages/summary";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import { useAppDispatch } from "./redux/hook";
 
 import { validate_sessionid , createSession } from "./helpers/createSession";
+import { getTodaysContent } from "./redux/features/gameplay";
 
 function App() {
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const checkSession = async () => {
@@ -17,9 +21,14 @@ function App() {
         await createSession();
       }
     };
+
+    const fetchContent = async () => {
+      await dispatch(getTodaysContent());
+    }
   
     checkSession();
-  }, []);
+    fetchContent();
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto">
