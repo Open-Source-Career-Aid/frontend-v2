@@ -64,6 +64,7 @@ export default function Gameplay() {
             </div>
             <div className="flex flex-col w-full px-5 gap-4">
                 <QuestionContainer />
+                <div className="h-12"></div>
             </div>
         </div>
     )
