@@ -80,15 +80,15 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
 
 export default function QuestionsContainer() {
     const gameplay = useAppSelector(state => state.gameplay)
-    const lastQuestionRef = useRef<HTMLDivElement | null>(null);
+    // const lastQuestionRef = useRef<HTMLDivElement | null>(null);
 
     const outerDivRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        if (lastQuestionRef.current) {
-            lastQuestionRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, [gameplay.currentQuestion])
+    // useEffect(() => {
+    //     if (lastQuestionRef.current) {
+    //         lastQuestionRef.current.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    // }, [gameplay.currentQuestion])
 
     // whenever teh div content changes, scroll to the bottom
     useEffect(() => {
