@@ -4,6 +4,7 @@ import Landing from './pages/landing';
 import Game from "./pages/game";
 import Navbar from "./components/navbar";
 import SummaryPage from "./pages/summary";
+import LeaderBoard from "./components/leaderboard";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { useAppDispatch } from "./redux/hook";
@@ -39,6 +40,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/game" element={<Game />} />
             <Route path="/summary" element={<SummaryPage />} />
+            <Route path="/leaderboard" element={<LeaderBoard />} />
           </Routes>
         </Router>
       </AnimatePresence>

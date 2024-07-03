@@ -16,8 +16,8 @@ const gameButtonStates = {
 
 export default function Gameplay() {
     const gameplay = useAppSelector(state => state.gameplay)
-    const submitted = useAppSelector(state => state.gameplay.submitted)
-    const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
+    const submitted = useAppSelector(state => state.gameplay?.submitted)
+    const gamecomplete = useAppSelector(state => state.gameplay?.gamecomplete)
 
     const dispatch = useAppDispatch()
 

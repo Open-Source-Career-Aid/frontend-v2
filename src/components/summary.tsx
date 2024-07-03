@@ -59,12 +59,12 @@ function TomorrowTopic({ topic }: { topic: string }) {
 }
 
 export default function Summary() {
-    const score = useAppSelector(state => state.gameplay.score)
+    const score = useAppSelector(state => state.gameplay?.score)
     // const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
-    const scores = useAppSelector(state => state.gameplay.scores)
-    const date = useAppSelector(state => state.gameplay.date)
-    const topic = useAppSelector(state => state.gameplay.topic)
-    const hints = useAppSelector(state => state.gameplay.hintsTaken)
+    const scores = useAppSelector(state => state.gameplay?.scores)
+    const date = useAppSelector(state => state.gameplay?.date)
+    const topic = useAppSelector(state => state.gameplay?.topic)
+    const hints = useAppSelector(state => state.gameplay?.hintsTaken)
 
     const footerRef = useRef<HTMLDivElement>(null)
 
