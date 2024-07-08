@@ -1,7 +1,7 @@
-import Summary from "../../components/summary";
 import { motion } from "framer-motion";
+import LeaderBoard from "../../components/leaderboard";
 
-export default function SummaryPage() {
+export default function LeaderPage() {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -10,7 +10,7 @@ export default function SummaryPage() {
             transition={{ duration: 0.8 }}
             className='w-full h-full'
         >
-            <Summary />
+            <LeaderBoard />
         </motion.div>
     )
 }

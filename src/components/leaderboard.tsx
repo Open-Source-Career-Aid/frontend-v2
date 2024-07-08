@@ -1,5 +1,4 @@
 import { LeaderBoardHeader } from "./headers/leaderboardheader";
-import { useState } from "react";
 
 const sample_scores = [
     {"name": "John Doe", "rank": 1, "score": 100, isCurrentUser: true},
@@ -59,8 +58,8 @@ function Body() {
 }
 
 export default function LeaderBoard() {
-    const [scores, setScores] = useState(sample_scores);
-    const [currentUser, setCurrentUser] = useState(scores.find((score) => score.isCurrentUser));
+    const scores = sample_scores
+    const currentUser = scores.find((score) => score.isCurrentUser);
 
     return (
         <div className="w-full">
@@ -70,6 +69,7 @@ export default function LeaderBoard() {
                 <div className="w-full h-full flex flex-col justify-between">
                     <div className=''></div>
                     <Body />
+                    <div className='h-10'></div>
                 </div>
                 <div className="fixed flex flex-row bottom-0 w-full max-w-[430px] h-[40px] shadow-md bg-white rounded-md my-4">
                     <div className="w-full flex flex-row justify-between items-center px-14">
