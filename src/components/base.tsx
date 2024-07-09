@@ -10,16 +10,24 @@ import StickyButton from "./stickybutton";
 import Button from './clickables/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Base() {
+    const gameplay = useAppSelector(state => state.gameplay)
     const topic = useAppSelector(state => state.gameplay.topic)
     const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
     const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
     const loading = useAppSelector(state => state.gameplay.topicloading)
     const dispatch = useAppDispatch()
 
+    const navigate = useNavigate()
+
     const handleLoading = () => {
         dispatch(setLoading(false))
+    }
+
+    if (gameplay.gamecomplete) {
+        navigate('/summary')
     }
 
     return (

@@ -63,7 +63,7 @@ export function formatLeaderBoardData(data: any) {
 
 async function getLeaderBoard() {
 
-	const url = "http://127.0.0.1:8000/getLeaderboard";
+	const url = "https://dumbsplain-v2-775ed0b11db8.herokuapp.com/getLeaderboard";
 	const method = 'GET';
 
 	const response = await BaseAPI({ method, url });

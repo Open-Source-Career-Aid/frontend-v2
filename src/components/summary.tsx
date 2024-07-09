@@ -59,6 +59,7 @@ function TomorrowTopic({ topic }: { topic: string }) {
 }
 
 export default function Summary() {
+    const gameplay = useAppSelector(state => state.gameplay)
     const score = useAppSelector(state => state.gameplay?.score)
     // const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
     const scores = useAppSelector(state => state.gameplay?.scores)
@@ -69,6 +70,8 @@ export default function Summary() {
     const footerRef = useRef<HTMLDivElement>(null)
 
     const [bodyHeight, setBodyHeight] = useState<number>(0)
+
+    console.log(gameplay)
 
     useEffect(() => {
         if (footerRef.current) {

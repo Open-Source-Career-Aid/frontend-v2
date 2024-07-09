@@ -5,6 +5,7 @@ import Button from "./clickables/button";
 import { TopicHeader } from "./headers/topicheader";
 import QuestionContainer from "./questioncontainer";
 import StickyButton from "./stickybutton";
+import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
@@ -22,6 +23,8 @@ export default function Gameplay() {
     const dispatch = useAppDispatch()
 
     const [buttonstate, setButtonState] = useState(gameButtonStates.SUBMITANSWER)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (gamecomplete) {
@@ -42,6 +45,13 @@ export default function Gameplay() {
             dispatch(nextQuestion())
         }
     }
+
+    // if gamecomplete, navigate to summary
+    useEffect(() => {
+        if (gamecomplete) {
+            navigate('/summary')
+        }
+    }, [gamecomplete, navigate])
 
     return (
         <div className="relative w-full h-full">

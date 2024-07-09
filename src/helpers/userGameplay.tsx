@@ -9,7 +9,7 @@ async function postScoresandHints({
     hints: Array<number>
 }) {
 
-	const url = "http://127.0.0.1:8000/gamePlayState/";
+	const url = "https://dumbsplain-v2-775ed0b11db8.herokuapp.com/gamePlayState/";
 	const method = 'POST';
     const body = {
         scores: JSON.stringify(scores),

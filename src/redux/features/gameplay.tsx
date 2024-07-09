@@ -67,12 +67,12 @@ export const getTodaysContent = createAsyncThunk(
     'gameplay/getTodaysContent',
     // check if today's content is stored in local storage by date
     async () => {
-        const date = new Date().toLocaleDateString()
-        const content = localStorage.getItem(date)
-        if (content) {
-            console.log("content found in local storage")
-            return JSON.parse(content)
-        }
+        // const date = new Date().toLocaleDateString()
+        // const content = localStorage.getItem(date)
+        // if (content) {
+        //     console.log("content found in local storage")
+        //     return JSON.parse(content)
+        // }
         const _newContent = await getContent()
         const newContent = {
             ...initialState,
@@ -83,8 +83,11 @@ export const getTodaysContent = createAsyncThunk(
             welcomeMessage: _newContent.welcome_message,
             nexttopic: _newContent.nexttopic,
             imgsrc: _newContent.imgsrc,
+            gamecomplete: _newContent.gamedone,
+            scores: JSON.parse(_newContent.scores),
+            hintsTaken: JSON.parse(_newContent.hints_taken).map((hint: number) => hint === 1),
         }
-        localStorage.setItem(date, JSON.stringify(newContent))
+        // localStorage.setItem(date, JSON.stringify(newContent))
         return newContent
     }
 )
@@ -200,6 +203,9 @@ export const gameplaySlice = createSlice({
             state.welcomeMessage = action.payload.welcomeMessage
             state.nexttopic = action.payload.nexttopic
             state.imgsrc = action.payload.imgsrc
+            state.gamecomplete = action.payload.gamecomplete
+            state.scores = action.payload.scores
+            state.hintsTaken = action.payload.hintsTaken
         })
         .addCase(getTodaysContent.rejected, (state) => {
             state.topicloading = false
