@@ -6,7 +6,6 @@ async function getContent() {
 	const method = 'GET';
 
 	const response = await BaseAPI({ method, url });
-	console.log(response);
 	return response;
 }
 

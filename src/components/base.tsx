@@ -26,6 +26,8 @@ export default function Base() {
         dispatch(setLoading(false))
     }
 
+    console.log(gameplay)
+
     if (gameplay.gamecomplete) {
         navigate('/summary')
     }
