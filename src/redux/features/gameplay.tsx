@@ -1,5 +1,6 @@
 import { createSlice , createAsyncThunk } from '@reduxjs/toolkit';
 import { getContent } from '../../helpers/getContent';
+import { postScoresandHints } from '../../helpers/userGameplay';
 
 type Question = {
     id: string,
@@ -88,6 +89,16 @@ export const getTodaysContent = createAsyncThunk(
     }
 )
 
+export const postScores = createAsyncThunk(
+    'gameplay/postScores',
+    async (state: gameplayState) => {
+        const response = await postScoresandHints({
+            scores: state.scores,
+            hints: state.hintsTaken.map((hint) => hint ? 1 : 0)
+        })
+        return response
+    }
+)
 
 export const gameplaySlice = createSlice({
   name: 'gameplay',
@@ -189,6 +200,18 @@ export const gameplaySlice = createSlice({
             state.welcomeMessage = action.payload.welcomeMessage
             state.nexttopic = action.payload.nexttopic
             state.imgsrc = action.payload.imgsrc
+        })
+        .addCase(getTodaysContent.rejected, (state) => {
+            state.topicloading = false
+        })
+        .addCase(postScores.pending, (state) => {
+            state.topicloading = true
+        })
+        .addCase(postScores.fulfilled, (state) => {
+            state.topicloading = false
+        })
+        .addCase(postScores.rejected, (state) => {
+            state.topicloading = false
         })
   }
 })

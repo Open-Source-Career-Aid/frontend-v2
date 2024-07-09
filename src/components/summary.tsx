@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react"
 import { useAppSelector } from "../redux/hook"
 import Button from "./clickables/button"
 import SummaryHeader from "./headers/summaryheader"
-import ScoreComparision from "./modals/scorecomparision"
 import ScoreGrid from "./summary/scoregrid"
+import { Link } from "react-router-dom"
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const days: { [key: number]: string } = {1: '1st', 2: '2nd', 3: '3rd', 4: '4th', 5: '5th', 6: '6th', 7: '7th',
@@ -141,10 +141,17 @@ export default function Summary() {
                     <Button onClick={handleShare}>
                         Share Your Score
                     </Button>
-                    <ScoreComparision
+                    {/* <ScoreComparision
                     score={10}
                     globalAverage={50}
-                    />
+                    /> */}
+                    <Link to='/leaderboard'>
+                        <Button
+                        type="blueOutline"
+                        >
+                            Leaderboard
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { submitAnswer , nextQuestion } from "../redux/features/gameplay";
+import { submitAnswer , nextQuestion , postScores } from "../redux/features/gameplay";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import Button from "./clickables/button";
 import { TopicHeader } from "./headers/topicheader";
@@ -25,6 +25,7 @@ export default function Gameplay() {
 
     useEffect(() => {
         if (gamecomplete) {
+            dispatch(postScores(gameplay))
             setButtonState(gameButtonStates.GAMEEND)
         } else if (submitted) {
             setButtonState(gameButtonStates.NEXTQUESTION)

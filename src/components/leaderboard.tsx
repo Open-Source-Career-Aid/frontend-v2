@@ -1,4 +1,6 @@
 import { LeaderBoardHeader } from "./headers/leaderboardheader";
+import { getLeaderBoard } from "../helpers/getLeaderBoard";
+import { useState , useEffect } from "react";
 
 const sample_scores = [
     {"name": "John Doe", "rank": 1, "score": 100, isCurrentUser: true},
@@ -58,8 +60,21 @@ function Body() {
 }
 
 export default function LeaderBoard() {
-    const scores = sample_scores
-    const currentUser = scores.find((score) => score.isCurrentUser);
+    const [scores, setScores] = useState<any[]>([]);
+    const [currentUser, setCurrentUser] = useState<any>();
+
+    useEffect(() => {
+        getLeaderBoard().then((response) => {
+            setScores(response);
+        });
+    }, []);
+
+    // when scores changes, set the current user where isCurrentUser is true
+    useEffect(() => {
+        console.log(scores)
+        if (!scores) return
+        setCurrentUser(scores?.find((score) => score.isCurrentUser));
+    }, [scores]);
 
     return (
         <div className="w-full">
