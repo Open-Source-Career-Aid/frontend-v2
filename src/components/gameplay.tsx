@@ -32,6 +32,7 @@ export default function Gameplay() {
         } else {
             setButtonState(gameButtonStates.SUBMITANSWER)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gamecomplete, submitted])
 
     const handleButtonClick = () => {

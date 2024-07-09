@@ -2,29 +2,6 @@ import { LeaderBoardHeader } from "./headers/leaderboardheader";
 import { getLeaderBoard } from "../helpers/getLeaderBoard";
 import { useState , useEffect } from "react";
 
-const sample_scores = [
-    {"name": "John Doe", "rank": 1, "score": 100, isCurrentUser: true},
-    {"name": "Jane Doe", "rank": 2, "score": 90, isCurrentUser: false},
-    {"name": "John Smith", "rank": 3, "score": 80, isCurrentUser: false},
-    {"name": "Jane Smith", "rank": 4, "score": 70, isCurrentUser: false},
-    {"name": "John Doe", "rank": 5, "score": 60, isCurrentUser: false},
-    {"name": "Jane Doe", "rank": 6, "score": 50, isCurrentUser: false},
-    {"name": "John Smith", "rank": 7, "score": 40, isCurrentUser: false},
-    {"name": "Jane Smith", "rank": 8, "score": 30, isCurrentUser: false},
-    {"name": "John Doe", "rank": 9, "score": 20, isCurrentUser: false},
-    {"name": "Jane Doe", "rank": 10, "score": 10, isCurrentUser: false},
-    {"name": "John Doe", "rank": 1, "score": 100, isCurrentUser: false},
-    {"name": "Jane Doe", "rank": 2, "score": 90, isCurrentUser: false},
-    {"name": "John Smith", "rank": 3, "score": 80, isCurrentUser: false},
-    {"name": "Jane Smith", "rank": 4, "score": 70, isCurrentUser: false},
-    {"name": "John Doe", "rank": 5, "score": 60, isCurrentUser: false},
-    {"name": "Jane Doe", "rank": 6, "score": 50, isCurrentUser: false},
-    {"name": "John Smith", "rank": 7, "score": 40, isCurrentUser: false},
-    {"name": "Jane Smith", "rank": 8, "score": 30, isCurrentUser: false},
-    {"name": "John Doe", "rank": 9, "score": 20, isCurrentUser: false},
-    {"name": "Jane Doe", "rank": 10, "score": 10, isCurrentUser: false}
-]
-
 function LeaderTable({ scores }: { scores: any[] }) {
     return (
         <div className="w-full">
@@ -51,10 +28,10 @@ function LeaderTable({ scores }: { scores: any[] }) {
 }
 
 
-function Body() {
+function Body({ scores }: { scores: any[] }) {
     return (
         <div className="flex flex-col w-full px-4 gap-4 pb-6">
-            <LeaderTable scores={sample_scores} />
+            <LeaderTable scores={scores} />
         </div>
     );
 }
@@ -71,7 +48,6 @@ export default function LeaderBoard() {
 
     // when scores changes, set the current user where isCurrentUser is true
     useEffect(() => {
-        console.log(scores)
         if (!scores) return
         setCurrentUser(scores?.find((score) => score.isCurrentUser));
     }, [scores]);
@@ -82,8 +58,8 @@ export default function LeaderBoard() {
                 <div className='h-16'></div>
                 <LeaderBoardHeader />
                 <div className="w-full h-full flex flex-col justify-between">
-                    <div className=''></div>
-                    <Body />
+                    <div className='h-10'></div>
+                    <Body scores={scores} />
                     <div className='h-10'></div>
                 </div>
                 <div className="fixed flex flex-row bottom-0 w-full max-w-[430px] h-[40px] shadow-md bg-white rounded-md my-4">
