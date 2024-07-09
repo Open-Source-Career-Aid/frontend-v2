@@ -9,7 +9,7 @@ async function postScoresandHints({
     hints: Array<number>
 }) {
 
-	const url = "https://dumbsplain-v2-775ed0b11db8.herokuapp.com/gamePlayState/";
+	const url = "https://apiv2.dumbsplain.com/gamePlayState/";
 	const method = 'POST';
     const body = {
         scores: JSON.stringify(scores),
