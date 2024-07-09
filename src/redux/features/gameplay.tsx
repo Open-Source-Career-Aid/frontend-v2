@@ -195,7 +195,6 @@ export const gameplaySlice = createSlice({
             state.topicloading = true
         })
         .addCase(getTodaysContent.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.topicloading = false
             state.id = action.payload.id
             state.date = action.payload.date

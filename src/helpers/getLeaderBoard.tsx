@@ -1,4 +1,5 @@
 import BaseAPI from "./baseapi";
+import { API_URL } from "../config";
 
 export function formatLeaderBoardData(data: any) {
 
@@ -63,7 +64,7 @@ export function formatLeaderBoardData(data: any) {
 
 async function getLeaderBoard() {
 
-	const url = "https://apiv2.dumbsplain.com/getLeaderboard";
+	const url = `${API_URL}/getLeaderboard`;
 	const method = 'GET';
 
 	const response = await BaseAPI({ method, url });

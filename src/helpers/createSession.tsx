@@ -1,4 +1,5 @@
 import BaseAPI from "./baseapi";
+import { API_URL } from "../config";
 
 function validate_sessionid() {
 	
@@ -16,7 +17,7 @@ function validate_sessionid() {
 
 async function createSession() {
 
-	const url = "https://apiv2.dumbsplain.com/create_session";
+	const url = `${API_URL}/create_session`;
 	const method = 'GET';
 
 	const response = await BaseAPI({ method, url });
