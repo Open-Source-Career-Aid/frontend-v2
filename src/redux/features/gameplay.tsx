@@ -109,43 +109,43 @@ export const gameplaySlice = createSlice({
   reducers: {
     setScore: (state, action) => {
         state.score = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setDate: (state, action) => {
         state.date = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setTopic: (state, action) => {
         state.topic = action.payload
-        // saveState(state)        
+        saveState(state)        
     },
     setQuestions: (state, action) => {
         state.questions = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setCurrentQuestion: (state, action) => {
         state.currentQuestion = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setCurrentAnswer: (state, action) => {
         state.currentAnswer = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setPreviousAnswers: (state, action) => {
         state.previousAnswers = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setQuestionLoading: (state, action) => {
         state.questionLoading = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setSubmitted: (state, action) => {
         state.submitted = action.payload
-        // saveState(state)
+        saveState(state)
     },
     setGameComplete: (state, action) => {
         state.gamecomplete = action.payload
-        // saveState(state)
+        saveState(state)
     },
     submitAnswer: (state) => {
         if (state.currentAnswer === null) {
@@ -168,7 +168,7 @@ export const gameplaySlice = createSlice({
         //     state.currentQuestion += 1
         //     state.questionLoading = true
         // }
-        // saveState(state)
+        saveState(state)
     },
     nextQuestion: (state) => {
         if (state.currentQuestion === state.questions.length - 1) {
@@ -177,7 +177,7 @@ export const gameplaySlice = createSlice({
         state.currentQuestion += 1
         state.questionLoading = true
         state.submitted = false
-        // saveState(state)
+        saveState(state)
     },
     getHint: (state) => {
         state.hintsTaken[state.currentQuestion] = true
@@ -186,7 +186,7 @@ export const gameplaySlice = createSlice({
     },
     setLoading: (state, action) => {
         state.topicloading = action.payload
-        // saveState(state)
+        saveState(state)
     },
   },
   extraReducers: (builder) => {
