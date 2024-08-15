@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+/* hide scrollbar for chrome, safari and opera */
+body::-webkit-scrollbar {
+  display: none !important;
+}

@@ -69,12 +69,34 @@ export function Option({
 
   return (
     <motion.div
+    className='flex gap-2 items-center'
     initial={{ opacity: 0 , y: '100%' }}
     animate={{ opacity: 1 , y: 0 }}
     transition={{ duration: 0.2 , delay: delay * 3 }}
     exit={{ opacity: 0 }}
     onAnimationComplete={handleAnimationEnd}
     >
+      <div className="w-8 h-8">
+        { disabled && isCorrect ?
+        <motion.img
+          className="size-8"
+          src="/icons/Check.png"
+          alt="Profile"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        /> :
+        disabled && !isCorrect && selected ?
+        <motion.img
+          className="size-8"
+          src="/icons/redX.png"
+          alt="Profile"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        /> : null
+        }
+      </div>
       <AnimatePresence mode="wait">
         { !disabled &&
         <motion.button

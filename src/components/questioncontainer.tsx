@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { setCurrentAnswer, setQuestionLoading, getHint } from '../redux/features/gameplay'
 import { useAppDispatch, useAppSelector } from '../redux/hook'
 import BotMessage from './chat/botmessage'
+import HintMessage from './chat/hintmessage'
 import Question from './chat/question'
 import Options from './clickables/option'
 import HintBox from './modals/hintbox'
@@ -25,7 +26,8 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
             <div className='flex flex-col justify-center h-28'>
                 {index > 0 && <PageBreak />}
             </div>
-            <BotMessage>
+            <BotMessage fullwidth>
+                <div className='w-full pl-10'>
                 <Question 
                 question={gameplay.questions[index].question}
                 questionindex={index}
@@ -33,11 +35,12 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 status={questionstates[index]}
                 points={gameplay.totalPossibleScores[index]}
                 />
+                </div>
                 <Options
-                options={gameplay.questions[index].answers}
+                options={gameplay.questions[index].options}
                 onChange={(index) => dispatch(setCurrentAnswer(index))}
                 disabled={'pending'!==questionstates[index]}
-                correctOption={gameplay.questions[index].correctAnswerIndex}
+                correctOption={gameplay.questions[index].correct_option}
                 onAnimationEnd={() => dispatch(setQuestionLoading(false))}
                 />
                 {showHint && !gameplay.hintsTaken[index] && !gameplay.questionLoading && !gameplay.submitted &&
@@ -53,7 +56,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                     </motion.div>
                 </div>}
             </BotMessage>
-            {gameplay.hintsTaken[index] && <BotMessage>
+            {gameplay.hintsTaken[index] && <HintMessage>
                 <motion.p 
                 className='text-text-primary text-start'
                 initial={{ opacity: 0 }}
@@ -61,24 +64,15 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 >{gameplay.questions[index].hint}</motion.p>
-            </BotMessage>}
-            {gameplay.questionstates[index] === 'pending' ? null : gameplay.previousAnswers[index] === gameplay.questions[index].correctAnswerIndex ? <BotMessage>
+            </HintMessage>}
+            {gameplay.questionstates[index] === 'pending' ? null : <BotMessage>
                 <motion.p 
                 className='text-text-primary text-start'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                >{gameplay.questions[index].messageifCorrect}</motion.p>
-            </BotMessage>
-            : <BotMessage>
-                <motion.p 
-                className='text-text-primary text-start'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                >{gameplay.questions[index].messageifIncorrect}</motion.p>
+                >{gameplay.questions[index].messages[gameplay.previousAnswers[index]]}</motion.p>
             </BotMessage>}
         </div>
     )
@@ -89,10 +83,7 @@ export default function QuestionsContainer() {
     const lastQuestionRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        console.log('scrolling')
         if (lastQuestionRef.current) {
-            console.log('scrolling')
-            console.log(lastQuestionRef.current)
             lastQuestionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [gameplay.currentQuestion])

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useAppSelector , useAppDispatch } from "../redux/hook";
-import { setLoading } from "../redux/features/topic";
+import { setLoading } from "../redux/features/gameplay";
 import BotMessage from "./chat/botmessage";
 import Footer from "./footer";
 import { TopicHeader } from "./headers/topicheader";
@@ -10,16 +10,25 @@ import StickyButton from "./stickybutton";
 import Button from './clickables/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Base() {
-    const topic = useAppSelector(state => state.topic.topic)
-    const welcomeMessage = useAppSelector(state => state.topic.welcomeMessage)
-    const imgsrc = useAppSelector(state => state.topic.imgsrc)
-    const loading = useAppSelector(state => state.topic.loading)
+    const gameplay = useAppSelector(state => state.gameplay)
+    const topic = useAppSelector(state => state.gameplay.topic)
+    const url = useAppSelector(state => state.gameplay.url)
+    const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
+    const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
+    const loading = useAppSelector(state => state.gameplay.topicloading)
     const dispatch = useAppDispatch()
+
+    const navigate = useNavigate()
 
     const handleLoading = () => {
         dispatch(setLoading(false))
+    }
+
+    if (gameplay.gamecomplete) {
+        navigate('/summary')
     }
 
     return (
@@ -61,7 +70,7 @@ export default function Base() {
                 transition={{ delay: 1, duration: 0.5}}
                 onAnimationComplete={handleLoading}
                 >
-                    <TopicHeader topic={topic} />
+                    <TopicHeader topic={topic} url={url} />
                     <Image src={imgsrc} alt={topic} />
                 </motion.div>
             </div>

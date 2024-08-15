@@ -9,16 +9,24 @@ type BaseApiProps = {
 	timeout: number
 }
 
-export default async function baseApi({ 
+export default async function BaseAPI({ 
 	method, 
 	url, 
-	body, 
+	body = null,
 	headers = {},
 	contentType = 'application/json',
-	timeout = 2000
-}: BaseApiProps) {
+	timeout = 5000
+}: Partial<BaseApiProps>) {
 	
 	try {
+
+		if (!url) {
+			throw new Error('URL is required');
+		}
+
+		if (!method) {
+			throw new Error('Method is required');
+		}
 		
 		const controller = new AbortController();
 		const { signal } = controller;
@@ -34,7 +42,7 @@ export default async function baseApi({
 		} else if (body) {
 			bodyToSend = body;
 		} else {
-			bodyToSend = null;
+			bodyToSend = '';
 		}
 
 		let finalMethod = method.toUpperCase();
@@ -50,7 +58,8 @@ export default async function baseApi({
 			headers: resolvedHeaders,
 			data: bodyToSend,
 			timeout,
-			signal
+			signal,
+			withCredentials: true
 		});
 
 		if (response.status >= 200 && response.status < 300) {
