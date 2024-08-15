@@ -21,6 +21,7 @@ type gameplayState = {
     topic: string,
     topicloading: boolean,
     imgsrc: string,
+    url: string,
     welcomeMessage: string,
     nexttopic: string,
     questions: Array<Question>,
@@ -44,6 +45,7 @@ const initialState: gameplayState = {
     topic: '',
     topicloading: true,
     imgsrc: '',
+    url: '',
     welcomeMessage: '',
     nexttopic: '',
     questions: [],
@@ -74,6 +76,7 @@ export const getTodaysContent = createAsyncThunk(
         //     return JSON.parse(content)
         // }
         const _newContent = await getContent()
+        console.log("content fetched from server", _newContent);
         const newContent = {
             ...initialState,
             id: _newContent.id,
@@ -83,6 +86,7 @@ export const getTodaysContent = createAsyncThunk(
             welcomeMessage: _newContent.welcome_message,
             nexttopic: _newContent.nexttopic,
             imgsrc: _newContent.imgsrc,
+            url: _newContent.url,
             gamecomplete: _newContent.gamedone,
             scores: JSON.parse(_newContent.scores),
             hintsTaken: JSON.parse(_newContent.hints_taken).map((hint: number) => hint === 1),
@@ -203,6 +207,7 @@ export const gameplaySlice = createSlice({
             state.welcomeMessage = action.payload.welcomeMessage
             state.nexttopic = action.payload.nexttopic
             state.imgsrc = action.payload.imgsrc
+            state.url = action.payload.url
             state.gamecomplete = action.payload.gamecomplete
             state.scores = action.payload.scores
             state.hintsTaken = action.payload.hintsTaken

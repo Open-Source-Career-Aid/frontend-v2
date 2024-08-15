@@ -32,7 +32,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto">
+    <div className="flex flex-col h-screen dark:bg-gray-800 max-w-[430px] mx-auto scrollbar-hide">
       <Navbar />
       <AnimatePresence>
         <Router>

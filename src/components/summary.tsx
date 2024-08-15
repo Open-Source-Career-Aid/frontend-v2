@@ -11,18 +11,20 @@ const days: { [key: number]: string } = {1: '1st', 2: '2nd', 3: '3rd', 4: '4th',
         17: '17th', 18: '18th', 19: '19th', 20: '20th', 21: '21st', 22: '22nd', 23: '23rd', 24: '24th',
         25: '25th', 26: '26th', 27: '27th', 28: '28th', 29: '29th', 30: '30th', 31: '31st'}
 
-function DateAndTopic({ date, topic }: { date: string, topic: string }) {
+function DateAndTopic({ date, topic, url }: { date: string, topic: string, url: string }) {
+    const dateObj = new Date(date);
+    // get the month, day, and year
+    const month = dateObj.getMonth();
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    // format the date
+    const formattedDate = `${months[month]} ${days[day]} ${year}`;
     
-    const dateParts = date.split('/')
-    const month = parseInt(dateParts[0])
-    const day = parseInt(dateParts[1])
-    const year = parseInt(dateParts[2])
-    const formattedDate = `${months[month - 1]} ${days[day]} ${year}`
-
     return (
         <div className=''>
             <p className='text-center text-lg text-text-secondary'>{formattedDate}</p>
-            <p className='text-center text-lg font-bold text-orange-strong'>{topic}</p>
+
+            <p className='text-center text-lg font-bold text-orange-strong'><a className="cursor-pointer" href={url} target="_blank" rel="noreferrer"  >{topic}</a></p> 
         </div>
     )
 }
@@ -59,13 +61,15 @@ function TomorrowTopic({ topic }: { topic: string }) {
 }
 
 export default function Summary() {
-    const gameplay = useAppSelector(state => state.gameplay)
-    const score = useAppSelector(state => state.gameplay?.score)
+    const gameplay = useAppSelector(state => state.gameplay);
+    const score = useAppSelector(state => state.gameplay?.score);
     // const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
-    const scores = useAppSelector(state => state.gameplay?.scores)
-    const date = useAppSelector(state => state.gameplay?.date)
-    const topic = useAppSelector(state => state.gameplay?.topic)
-    const hints = useAppSelector(state => state.gameplay?.hintsTaken)
+    const scores = useAppSelector(state => state.gameplay?.scores);
+    const date = useAppSelector(state => state.gameplay?.date);
+    const topic = useAppSelector(state => state.gameplay?.topic);
+    const nexttopic = useAppSelector(state => state.gameplay?.nexttopic);
+    const hints = useAppSelector(state => state.gameplay?.hintsTaken);
+    const url = useAppSelector(state => state.gameplay?.url);
 
     const footerRef = useRef<HTMLDivElement>(null)
 
@@ -129,9 +133,9 @@ export default function Summary() {
                     <div className='h-16'></div>
                     <div className="w-full flex flex-col gap-4">
                         <SummaryHeader score={score} />
-                        <DateAndTopic date={date} topic={topic} />
+                        <DateAndTopic date={date} topic={topic} url={url} />
                         <ScoreGrid scores={scores} hints={hints} />
-                        <TomorrowTopic topic={topic} />
+                        <TomorrowTopic topic={nexttopic} />
                     </div>
                 </div>
                 <div className="gap-2 mx-auto flex flex-col justify-center px-5 bg-[#F6F9FF] pt-2 pb-4"
@@ -148,13 +152,15 @@ export default function Summary() {
                     score={10}
                     globalAverage={50}
                     /> */}
-                    <Link to='/leaderboard'>
+
+                    {/* <Link to='/leaderboard'>
                         <Button
                         type="blueOutline"
                         >
                             Leaderboard
                         </Button>
                     </Link>
+                    */ }
                 </div>
             </div>
         </div>

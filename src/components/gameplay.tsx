@@ -72,7 +72,7 @@ export default function Gameplay() {
                 width: "430px",
             }}
             >
-                <TopicHeader topic={gameplay.topic} score={gameplay.score} showscore />
+                <TopicHeader topic={gameplay.topic} score={gameplay.score} url={gameplay.url} showscore  />
             </div>
             <div className="flex flex-col w-full px-5 gap-4">
                 <QuestionContainer />

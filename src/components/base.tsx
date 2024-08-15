@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 export default function Base() {
     const gameplay = useAppSelector(state => state.gameplay)
     const topic = useAppSelector(state => state.gameplay.topic)
+    const url = useAppSelector(state => state.gameplay.url)
     const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
     const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
     const loading = useAppSelector(state => state.gameplay.topicloading)
@@ -69,7 +70,7 @@ export default function Base() {
                 transition={{ delay: 1, duration: 0.5}}
                 onAnimationComplete={handleLoading}
                 >
-                    <TopicHeader topic={topic} />
+                    <TopicHeader topic={topic} url={url} />
                     <Image src={imgsrc} alt={topic} />
                 </motion.div>
             </div>

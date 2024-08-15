@@ -9,7 +9,7 @@ function LeaderTable({ scores }: { scores: any[] }) {
                 <thead>
                     <tr className="border-b border-text-primary">
                         <th className="text-center max-w-8 py-5 text-text-secondary font-light">RANK</th>
-                        <th className="text-left py-5 text-text-secondary font-light">PLAYER</th>
+                        <th className="text-center py-5 text-text-secondary font-light">PLAYER</th>
                         <th className="text-center max-w-8 py-5 text-text-secondary font-light">DQ</th>
                     </tr>
                 </thead>
