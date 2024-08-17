@@ -93,11 +93,14 @@ export default function Summary() {
     const handleShare = async () => {
         if (navigator.share) {
             try {
-            const dateParts = date.split('/')
-            const month = parseInt(dateParts[0])
-            const day = parseInt(dateParts[1])
-            const year = parseInt(dateParts[2])
-            const formattedDate = `${months[month - 1]} ${days[day]} ${year}`
+            // create a new date object
+            const dateObj = new Date(date);
+            // get the month, day, and year
+            const month = dateObj.getMonth();
+            const day = dateObj.getDate();
+            const year = dateObj.getFullYear();
+            // format the date
+            const formattedDate = `${months[month]} ${days[day]} ${year}`;
             let _title = `Dumbness Quotient: ${score} - ${formattedDate} "${topic}"`
             let _text = `Dumbness Quotient: ${score} \n${formattedDate} "${topic}"\n`
             for (let i = 0; i < scores.length; i++) {
