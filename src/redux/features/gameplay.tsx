@@ -24,6 +24,7 @@ type gameplayState = {
     url: string,
     welcomeMessage: string,
     nexttopic: string,
+    nexttopic_url: string,
     questions: Array<Question>,
     currentQuestion: number,
     currentAnswer: number | null,
@@ -48,6 +49,7 @@ const initialState: gameplayState = {
     url: '',
     welcomeMessage: '',
     nexttopic: '',
+    nexttopic_url: '',
     questions: [],
     currentQuestion: 0,
     currentAnswer: null,
@@ -206,6 +208,7 @@ export const gameplaySlice = createSlice({
             state.questions = action.payload.questions
             state.welcomeMessage = action.payload.welcomeMessage
             state.nexttopic = action.payload.nexttopic
+            state.nexttopic_url = action.payload.nexttopic_url
             state.imgsrc = action.payload.imgsrc
             state.url = action.payload.url
             state.gamecomplete = action.payload.gamecomplete

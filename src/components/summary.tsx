@@ -23,12 +23,12 @@ function DateAndTopic({ date, topic, url }: { date: string, topic: string, url: 
         <div className=''>
             <p className='text-center text-lg text-text-secondary'>{formattedDate}</p>
 
-            <p className='text-center text-lg font-bold text-orange-strong'><a className="cursor-pointer" href={url} target="_blank" rel="noreferrer"  >{topic}</a></p> 
+            <p className='text-center text-lg font-bold text-blue-strong'><a className="cursor-pointer underline text-blue-600 hover:text-blue800 visted:text-purple-600" href={url} target="_blank" rel="noreferrer"  >{topic}</a></p> 
         </div>
     )
 }
 
-function TomorrowTopic({ topic }: { topic: string }) {
+function TomorrowTopic({ topic, topic_url }: { topic: string, topic_url: string }) {
 
     const now = new Date()
     const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0)
@@ -53,7 +53,7 @@ function TomorrowTopic({ topic }: { topic: string }) {
     return (
         <div className=''>
             <p className='text-center text-lg text-text-secondary'>Tomorrow's topic:</p>
-            <p className='text-center text-lg font-bold text-orange-strong'>{topic}</p>
+            <p className='text-center text-lg font-bold text-blue-strong'> <a href={topic_url} className="cursor-pointer underline text-blue-600 hover:text-blue800 visted:text-purple-600" target="_blank" rel="noreferrer" >{topic}</a></p>
             <p className='text-center text-lg text-text-secondary'>{hours}:{minutes}:{seconds}</p>
         </div>
     )
@@ -67,6 +67,7 @@ export default function Summary() {
     const date = useAppSelector(state => state.gameplay?.date);
     const topic = useAppSelector(state => state.gameplay?.topic);
     const nexttopic = useAppSelector(state => state.gameplay?.nexttopic);
+    const nexttopic_url = useAppSelector(state => state.gameplay?.nexttopic_url);
     const hints = useAppSelector(state => state.gameplay?.hintsTaken);
     const url = useAppSelector(state => state.gameplay?.url);
 
@@ -137,7 +138,7 @@ export default function Summary() {
                         <SummaryHeader score={score} />
                         <DateAndTopic date={date} topic={topic} url={url} />
                         <ScoreGrid scores={scores} hints={hints} />
-                        <TomorrowTopic topic={nexttopic} />
+                        <TomorrowTopic topic={nexttopic} topic_url={nexttopic_url} />
                     </div>
                 </div>
                 <div className="gap-2 mx-auto flex flex-col justify-center px-5 bg-[#F6F9FF] pt-2 pb-4"
