@@ -70,7 +70,8 @@ export default function Summary() {
     const nexttopic_url = useAppSelector(state => state.gameplay?.nexttopic_url);
     const hints = useAppSelector(state => state.gameplay?.hintsTaken);
     const url = useAppSelector(state => state.gameplay?.url);
-
+    // sum the scores
+    const currentScore = scores.reduce((acc, score) => acc + score, 0);
     const footerRef = useRef<HTMLDivElement>(null)
 
     const [bodyHeight, setBodyHeight] = useState<number>(0)
@@ -135,7 +136,7 @@ export default function Summary() {
                 >
                     <div className='h-16'></div>
                     <div className="w-full flex flex-col gap-4">
-                        <SummaryHeader score={score} />
+                        <SummaryHeader score={currentScore} />
                         <DateAndTopic date={date} topic={topic} url={url} />
                         <ScoreGrid scores={scores} hints={hints} />
                         <TomorrowTopic topic={nexttopic} topic_url={nexttopic_url} />
