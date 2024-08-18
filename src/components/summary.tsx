@@ -103,8 +103,8 @@ export default function Summary() {
             const year = dateObj.getFullYear();
             // format the date
             const formattedDate = `${months[month]} ${days[day]} ${year}`;
-            let _title = `Dumbness Quotient: ${score} - ${formattedDate} "${topic}"`
-            let _text = `Dumbness Quotient: ${score} \n${formattedDate} "${topic}"\n`
+            let _title = `Dumbness Quotient: ${currentScore} - ${formattedDate} "${topic}"`
+            let _text = `Dumbness Quotient: ${currentScore} \n${formattedDate} "${topic}"\n`
             for (let i = 0; i < scores.length; i++) {
                 if (scores[i] !== 0) {
                     _text += '🟩'
