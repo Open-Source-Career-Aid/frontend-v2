@@ -87,6 +87,7 @@ export const getTodaysContent = createAsyncThunk(
             questions: _newContent.questions,
             welcomeMessage: _newContent.welcome_message,
             nexttopic: _newContent.nexttopic,
+            nexttopic_url: _newContent.nexttopic_url,
             imgsrc: _newContent.imgsrc,
             url: _newContent.url,
             gamecomplete: _newContent.gamedone,
