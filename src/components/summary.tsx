@@ -53,7 +53,7 @@ function TomorrowTopic({ topic, topic_url }: { topic: string, topic_url: string 
     return (
         <div className=''>
             <p className='text-center text-lg text-text-secondary'>Tomorrow's topic:</p>
-            <p className='text-center text-lg font-bold text-blue-strong'> <a href={topic_url} className="cursor-pointer underline text-blue-600 hover:text-blue800 visted:text-purple-600" target="_blank" rel="noreferrer" >{topic}</a></p>
+            <p className='text-center text-lg font-bold text-blue-strong'> <a href={topic_url}  className="cursor-pointer underline text-blue-600 hover:text-blue800 visted:text-purple-600" target="_blank" rel="noreferrer" >{topic}</a></p>
             <p className='text-center text-lg text-text-secondary'>{hours}:{minutes}:{seconds}</p>
         </div>
     )
@@ -61,7 +61,7 @@ function TomorrowTopic({ topic, topic_url }: { topic: string, topic_url: string 
 
 export default function Summary() {
     const gameplay = useAppSelector(state => state.gameplay);
-    const score = useAppSelector(state => state.gameplay?.score);
+    // const score = useAppSelector(state => state.gameplay?.score);
     // const gamecomplete = useAppSelector(state => state.gameplay.gamecomplete)
     const scores = useAppSelector(state => state.gameplay?.scores);
     const date = useAppSelector(state => state.gameplay?.date);

@@ -78,7 +78,7 @@ export const getTodaysContent = createAsyncThunk(
         //     return JSON.parse(content)
         // }
         const _newContent = await getContent()
-        console.log("content fetched from server", _newContent);
+        // console.log("content fetched from server", _newContent);
         const newContent = {
             ...initialState,
             id: _newContent.id,
