@@ -3,7 +3,8 @@ import { API_URL } from "../config";
 
 async function getContent() {
 	const timestamp = new Date().getTime(); // get client timestamp
-	const url = `${API_URL}/topic/?q=${timestamp}`;
+	const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	const url = `${API_URL}/topic/?q=${timestamp}&zone=${timezone}`;
 	const method = 'GET';
 
 	const response = await BaseAPI({ method, url });
