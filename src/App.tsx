@@ -11,7 +11,9 @@ import { useAppDispatch } from "./redux/hook";
 
 import { validate_sessionid , createSession } from "./helpers/createSession";
 import { getTodaysContent } from "./redux/features/gameplay";
-
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 function App() {
 
   const dispatch = useAppDispatch();
