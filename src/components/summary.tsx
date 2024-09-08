@@ -81,7 +81,8 @@ export default function Summary() {
 
     useEffect(() => {
         if (footerRef.current) {
-            setBodyHeight(window.innerHeight - footerRef.current.clientHeight)
+            setBodyHeight(100);
+            // setBodyHeight(window.innerHeight - footerRef.current.clientHeight)
         }
     }, [footerRef])
     
@@ -132,7 +133,7 @@ export default function Summary() {
             <div className="flex flex-col min-h-screen justify-between">
                 <div className="overflow-scroll"
                 style={{
-                    height: bodyHeight
+                    height: `${bodyHeight}%`
                 }}
                 >
                     <div className='h-16'></div>
@@ -143,9 +144,10 @@ export default function Summary() {
                         <TomorrowTopic topic={nexttopic} topic_url={nexttopic_url} />
                     </div>
                 </div>
-                <div className="gap-2 mx-auto flex flex-col justify-center px-5 bg-[#F6F9FF] pt-2 pb-4"
+                <div className="gap-2 mx-auto flex flex-col justify-center px-5 bg-[#F6F9FF] pt-2 pb-4 fixed bottom-0 z-20 left-0"
                 style={{
-                    width: "430px"
+                    // width: "430px"
+                    width: "100%"
                 }}
                 ref={footerRef}
                 >
@@ -157,7 +159,7 @@ export default function Summary() {
                     <div className="social-media-icons p-4 flex justify-center">
                         Follow Dumbsplain on
                 <a href="https://x.com/dumbsplain_" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} size="lg"  color="#1DA1F2" className="mx-2"/></a>
-                <a href="https://x.com/dumbsplain_" target="_blank" rel="noreferrer"> <FontAwesomeIcon icon={faInstagram} size="lg" color="#cd486b" className="mx-2"/></a>
+                <a href="https://www.instagram.com/dumbsplain/" target="_blank" rel="noreferrer"> <FontAwesomeIcon icon={faInstagram} size="lg" color="#cd486b" className="mx-2"/></a>
                 <a href="https://www.reddit.com/r/TriviaBot_League/hot/" target="_blank" rel="noreferrer"> <FontAwesomeIcon icon={faReddit} size="lg" color="#FF4500" className="mx-2"/></a>
                 {/* <FontAwesomeIcon icon={faReddit} size="lg" color="#FF4500"  f08080 className="mx-2" /> */}
                 </div>

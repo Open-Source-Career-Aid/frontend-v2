@@ -19,6 +19,7 @@ export default function Gameplay() {
     const gameplay = useAppSelector(state => state.gameplay)
     const submitted = useAppSelector(state => state.gameplay?.submitted)
     const gamecomplete = useAppSelector(state => state.gameplay?.gamecomplete)
+    let intervalID: undefined | NodeJS.Timeout  = undefined;
 
     const dispatch = useAppDispatch()
 
@@ -49,8 +50,13 @@ export default function Gameplay() {
     // if gamecomplete, navigate to summary
     useEffect(() => {
         if (gamecomplete) {
-            navigate('/summary')
+             intervalID = setInterval(() => navigate('/summary'), 60000);
         }
+        if (setInterval !== undefined) { 
+            // clearInterval(intervalID);
+             intervalID = undefined;
+            }
+        
     }, [gamecomplete, navigate])
 
     return (

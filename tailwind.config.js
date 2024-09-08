@@ -32,6 +32,16 @@ module.exports = {
         'red-lite': 'rgba(249, 138, 138, 1)'
       
       },
+      screens: {
+        '2xl': { "max": "374px"},
+        'small': '375px',
+        'med': '410px',
+        'large' : '1024px',
+      },
+      fontSize: {
+        'resp-sm': '0.75rem',
+        'resp-lg': '1.25rem'
+      },
     },
   },
   plugins: [

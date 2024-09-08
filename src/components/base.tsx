@@ -32,7 +32,7 @@ export default function Base() {
     }
 
     return (
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full sm-src:resp-sm">
             <StickyButton>
                 <Link to="/game">
                     <Button
@@ -52,7 +52,7 @@ export default function Base() {
                     <Logo showfull />
                 </div>
                 <motion.div
-                className="w-full"
+                className="w-full 2xl:text-xs small:text-xs med:text-base md:text-base"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.5}}

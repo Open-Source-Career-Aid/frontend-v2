@@ -67,7 +67,7 @@ const QuestionContainer = React.forwardRef<HTMLDivElement, { index: number, show
             </HintMessage>}
             {gameplay.questionstates[index] === 'pending' ? null : <BotMessage>
                 <motion.p 
-                className='text-text-primary text-start'
+                className='text-text-primary text-start 2xl:text-sm med:text-base md:text-base small:text-sm'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
