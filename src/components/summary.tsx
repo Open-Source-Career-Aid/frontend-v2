@@ -3,8 +3,8 @@ import { useAppSelector } from "../redux/hook"
 import Button from "./clickables/button"
 import SummaryHeader from "./headers/summaryheader"
 import ScoreGrid from "./summary/scoregrid"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const days: { [key: number]: string } = {1: '1st', 2: '2nd', 3: '3rd', 4: '4th', 5: '5th', 6: '6th', 7: '7th',
@@ -156,12 +156,12 @@ export default function Summary() {
                     <Button onClick={handleShare}>
                         Share Your Score
                     </Button>
-                    <div className="social-media-icons p-4 flex justify-center">
+                    {/* <div className="social-media-icons p-4 flex justify-center">
                         Follow Dumbsplain on
-                        {/* <a href="https://x.com/dumbsplain_" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} size="lg"  color="#1DA1F2" className="mx-2"/></a> */}
+                        <a href="https://x.com/dumbsplain_" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} size="lg"  color="#1DA1F2" className="mx-2"/></a>
                         <a href="https://www.instagram.com/dumbsplain/" target="_blank" rel="noreferrer"> <FontAwesomeIcon icon={faInstagram} size="lg" color="#cd486b" className="mx-2"/></a>
-                        {/* <a href="https://www.reddit.com/r/TriviaBot_League/hot/" target="_blank" rel="noreferrer"> <FontAwesomeIcon icon={faReddit} size="lg" color="#FF4500" className="mx-2"/></a> */}
-                    </div>
+                        <a href="https://www.reddit.com/r/TriviaBot_League/hot/" target="_blank" rel="noreferrer"> <FontAwesomeIcon icon={faReddit} size="lg" color="#FF4500" className="mx-2"/></a>
+                    </div> */}
                     {/* <FontAwesomeIcon icon={faReddit} size="lg" color="#FF4500"  f08080 className="mx-2" /> */}
                     
                     {/* <ScoreComparision
