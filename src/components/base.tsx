@@ -15,7 +15,7 @@ import { getContent } from '../helpers/getContent';
 import { useEffect, useState } from "react" // useRef
 export default function Base() {
     const gameplay = useAppSelector(state => state.gameplay)
-    const topic = useAppSelector(state => state.gameplay.topic)
+    // const topic = useAppSelector(state => state.gameplay.topic)
     // const url = useAppSelector(state => state.gameplay.url)
     // const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
     // const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
