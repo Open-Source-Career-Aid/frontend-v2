@@ -11,16 +11,20 @@ import Button from './clickables/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { getContent } from '../helpers/getContent';
+import { useEffect, useRef, useState } from "react"
 export default function Base() {
     const gameplay = useAppSelector(state => state.gameplay)
     const topic = useAppSelector(state => state.gameplay.topic)
     const url = useAppSelector(state => state.gameplay.url)
     const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
+    console.log(welcomeMessage, "test");
     const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
     const loading = useAppSelector(state => state.gameplay.topicloading)
     const dispatch = useAppDispatch()
-
+    const [ai_message, setAI] = useState("");
+    
+    
     const navigate = useNavigate()
 
     const handleLoading = () => {
@@ -30,10 +34,19 @@ export default function Base() {
     if (gameplay.gamecomplete) {
         navigate('/summary')
     }
+    useEffect( () => {
+        async function fetchAPI () {
+            const content = await getContent()
+            if (content){
+                setAI(content.ai_message);
+            }
+            }
+            fetchAPI()
+    }, []);
 
     return (
         <div className="relative w-full h-full sm-src:resp-sm">
-            <StickyButton>
+            {/* <StickyButton>
                 <Link to="/game">
                     <Button
                     loading={loading}
@@ -45,7 +58,7 @@ export default function Base() {
                     </span>
                     </Button>
                 </Link>
-            </StickyButton>
+            </StickyButton> */}
             <div className="flex flex-col w-full px-5 gap-4">
                 <div className="h-6"></div>
                 <div className="flex justify-center w-full mt-6">
@@ -59,7 +72,8 @@ export default function Base() {
                 >
                     <BotMessage>
                         <p className="text-text-primary">
-                            {welcomeMessage}
+                            {/* {welcomeMessage} */}
+                            { ai_message }
                         </p>
                     </BotMessage>
                 </motion.div>
@@ -70,8 +84,9 @@ export default function Base() {
                 transition={{ delay: 1, duration: 0.5}}
                 onAnimationComplete={handleLoading}
                 >
-                    <TopicHeader topic={topic} url={url} />
-                    <Image src={imgsrc} alt={topic} />
+                    {/* <TopicHeader topic={topic} url={url} /> */}
+                    {/* <Image src={imgsrc} alt={topic} /> */}
+                    <Image src="https://i.imgur.com/ZIvWfsg.jpg" alt="Dumbsplain" />
                 </motion.div>
             </div>
             <Footer />

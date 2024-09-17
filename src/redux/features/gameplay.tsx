@@ -78,6 +78,7 @@ export const getTodaysContent = createAsyncThunk(
         //     return JSON.parse(content)
         // }
         const _newContent = await getContent()
+        console.log(_newContent);
         // console.log("content fetched from server", _newContent);
         const newContent = {
             ...initialState,
@@ -95,6 +96,8 @@ export const getTodaysContent = createAsyncThunk(
             hintsTaken: JSON.parse(_newContent.hints_taken).map((hint: number) => hint === 1),
         }
         // localStorage.setItem(date, JSON.stringify(newContent))
+        
+        // return newContent
         return newContent
     }
 )
