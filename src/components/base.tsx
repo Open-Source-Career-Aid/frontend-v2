@@ -3,24 +3,23 @@ import { useAppSelector , useAppDispatch } from "../redux/hook";
 import { setLoading } from "../redux/features/gameplay";
 import BotMessage from "./chat/botmessage";
 import Footer from "./footer";
-import { TopicHeader } from "./headers/topicheader";
+// import { TopicHeader } from "./headers/topicheader";
 import Image from "./image";
 import Logo from "./logo";
-import StickyButton from "./stickybutton";
-import Button from './clickables/button';
-import { ArrowRight } from 'lucide-react';
-import { Link } from "react-router-dom";
+// import StickyButton from "./stickybutton";
+// import Button from './clickables/button';
+// import { ArrowRight } from 'lucide-react';
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getContent } from '../helpers/getContent';
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react" // useRef
 export default function Base() {
     const gameplay = useAppSelector(state => state.gameplay)
     const topic = useAppSelector(state => state.gameplay.topic)
-    const url = useAppSelector(state => state.gameplay.url)
-    const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
-    console.log(welcomeMessage, "test");
-    const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
-    const loading = useAppSelector(state => state.gameplay.topicloading)
+    // const url = useAppSelector(state => state.gameplay.url)
+    // const welcomeMessage = useAppSelector(state => state.gameplay.welcomeMessage)
+    // const imgsrc = useAppSelector(state => state.gameplay.imgsrc)
+    // const loading = useAppSelector(state => state.gameplay.topicloading)
     const dispatch = useAppDispatch()
     const [ai_message, setAI] = useState("");
     
